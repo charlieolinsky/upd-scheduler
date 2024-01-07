@@ -1,10 +1,10 @@
 import "./App.css";
-import CalenderCard from "./CalendarCard";
+import CalenderBlock from "./CalendarBlock";
 
 function App() {
   return (
     <>
-      <CalenderCard />
+      <CalenderBlock />
     </>
   );
 }

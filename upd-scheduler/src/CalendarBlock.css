@@ -1,0 +1,11 @@
+.cal-container {
+    max-width: 50%;
+    margin-left: auto;
+}
+
+.react-calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
