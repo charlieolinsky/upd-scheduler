@@ -1,20 +1,17 @@
-import { useState } from "react";
-import Calendar from "react-calendar";
+import CalendarNumber from "./CalendarNumber";
+import CalendarNameCard from "./CalendarNameCard";
 
 //CSS
-import "./CalendarBlock.css";
-//Deafult CSS for Calendar
-//import "react-calendar/dist/Calendar.css";
+import "./styles/CalendarBlock.css";
 
 function CalenderBlock() {
-  const [date, setDate] = useState(new Date());
-
   return (
-    <>
-      <div className="cal-container">
-        <Calendar value={date} />
-      </div>
-    </>
+    <div className="cal-block-container">
+      <CalendarNumber />
+      <CalendarNameCard />
+      <CalendarNameCard />
+      <CalendarNameCard />
+    </div>
   );
 }
 

@@ -1,10 +1,10 @@
-import "./App.css";
-import CalenderBlock from "./CalendarBlock";
+import "./styles/App.css";
+import CalenderInputs from "./CalendarInputs";
 
 function App() {
   return (
     <>
-      <CalenderBlock />
+      <CalenderInputs />
     </>
   );
 }
