@@ -5,15 +5,15 @@ import "./styles/CalendarInputs.css";
 interface CalendarInputsProps {}
 
 const CalendarInputs: React.FC<CalendarInputsProps> = () => {
-  const [year, setYear] = useState<string>("");
-  const [month, setMonth] = useState<string>("");
+  const [year, setYear] = useState<number>();
+  const [month, setMonth] = useState<number>();
 
   const handleYearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setYear(event.target.value);
+    setYear(parseInt(event.target.value));
   };
 
   const handleMonthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMonth(event.target.value);
+    setMonth(parseInt(event.target.value));
   };
 
   return (

@@ -4,12 +4,13 @@ import "./styles/CalendarBlock.css";
 
 interface CalendarBlockProps {
   index: number;
+  calendarNumbers: any;
 }
 
 const CalendarBlock: React.FC<CalendarBlockProps> = ({ index }) => {
   return (
     <div className={`cal-block-${index}`}>
-      <CalendarNumber />
+      <CalendarNumber index={index} />
       <CalendarNameCard />
       <CalendarNameCard />
       <CalendarNameCard />
