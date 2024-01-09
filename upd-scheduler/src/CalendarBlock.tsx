@@ -1,18 +1,21 @@
 import CalendarNumber from "./CalendarNumber";
 import CalendarNameCard from "./CalendarNameCard";
-
-//CSS
 import "./styles/CalendarBlock.css";
 
-function CalenderBlock() {
+interface CalendarBlockProps {
+  index: number;
+}
+
+const CalendarBlock: React.FC<CalendarBlockProps> = ({ index }) => {
   return (
-    <div className="cal-block-container">
+    <div className={`cal-block-${index}`}>
       <CalendarNumber />
       <CalendarNameCard />
       <CalendarNameCard />
       <CalendarNameCard />
+      <h3>{"Index: " + index}</h3>
     </div>
   );
-}
+};
 
-export default CalenderBlock;
+export default CalendarBlock;
