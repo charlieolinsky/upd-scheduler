@@ -41,6 +41,12 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
     "2028",
     "2029",
     "2030",
+    "2031",
+    "2032",
+    "2033",
+    "2034",
+    "2035",
+    "2036",
   ];
 
   const selectedMonthName = month !== undefined ? months[month - 1] : "";
@@ -65,7 +71,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
       </div>
       {year && month && (
         <div className="calendar">
-          <Calendar year={year} month={month} />
+          <Calendar year={year} month={month} monthName={selectedMonthName} />
         </div>
       )}
     </>

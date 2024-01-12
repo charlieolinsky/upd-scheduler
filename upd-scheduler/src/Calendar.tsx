@@ -4,12 +4,13 @@ import "./styles/Calendar.css";
 interface CalendarProps {
   year: number;
   month: number;
+  monthName: string;
 }
 
-const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
+const Calendar: React.FC<CalendarProps> = ({ year, month, monthName }) => {
   //Create an array of 35 unique CalendarBlock components with unique indicies
-  const calendarBlocks = Array.from({ length: 35 }, (_, i) => (
-    <CalendarBlock index={i} calendarNumbers={Array(35).fill(null)} />
+  const calendarBlocks = Array.from({ length: 42 }, (_, i) => (
+    <CalendarBlock index={i} calendarNumbers={Array(42).fill(null)} />
   ));
 
   //Generate the appropriate numbers for each day of any given month or year
@@ -21,7 +22,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
     //Calculate the number of days in the month.
     const daysInMonth = new Date(year, month + 1, 0).getDate(); //Date points to the day before the first day of the next month. (last day of the current month)
     //Initialize Array to store numbers
-    const calendarNumbers = new Array(35).fill(null);
+    const calendarNumbers = new Array(42).fill(null);
 
     //Calculate the numbers for each day of the month
     //i represents the first day of the month (starts at 0)
@@ -34,7 +35,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month }) => {
   return (
     <div className="calendar-main">
       <h1>
-        Calendar for {month}/{year}.
+        {monthName}, {year}.
       </h1>
 
       <div className="calendar-grid">
