@@ -1,11 +1,11 @@
 interface CalendarNumberProps {
-  index: number;
+  number: number;
 }
 
-const CalendarNumber: React.FC<CalendarNumberProps> = ({ index }) => {
+const CalendarNumber: React.FC<CalendarNumberProps> = ({ number }) => {
   return (
     <div className="cal-number">
-      <h1> {index} </h1>
+      <h1> {number ? number : 0} </h1>
     </div>
   );
 };

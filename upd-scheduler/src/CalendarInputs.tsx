@@ -5,38 +5,63 @@ import "./styles/CalendarInputs.css";
 interface CalendarInputsProps {}
 
 const CalendarInputs: React.FC<CalendarInputsProps> = () => {
-  const [year, setYear] = useState<number>();
-  const [month, setMonth] = useState<number>();
+  const [year, setYear] = useState<number>(new Date().getFullYear());
+  const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
 
-  const handleYearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(parseInt(event.target.value));
   };
 
-  const handleMonthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMonth(parseInt(event.target.value));
+  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedMonthName = event.target.value;
+    const monthNumber = months.indexOf(selectedMonthName) + 1;
+    setMonth(monthNumber);
   };
+
+  const months: string[] = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const years: string[] = [
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029",
+    "2030",
+  ];
+
+  const selectedMonthName = month !== undefined ? months[month - 1] : "";
 
   return (
     <>
       <div className="calendar-inputs">
-        <label htmlFor="year">
-          Year:
-          <input
-            id="year"
-            type="text"
-            value={year}
-            onChange={handleYearChange}
-          />
-        </label>
-        <label htmlFor="month">
-          Month:
-          <input
-            id="month"
-            type="text"
-            value={month}
-            onChange={handleMonthChange}
-          />
-        </label>
+        <select value={selectedMonthName} onChange={handleMonthChange}>
+          {months.map((monthOption, monthIndex) => (
+            <option key={monthIndex} value={monthOption}>
+              {monthOption}
+            </option>
+          ))}
+        </select>
+        <select value={year} onChange={handleYearChange}>
+          {years.map((yearOption, yearIndex) => (
+            <option key={yearIndex} value={yearOption}>
+              {yearOption}
+            </option>
+          ))}
+        </select>
       </div>
       {year && month && (
         <div className="calendar">
