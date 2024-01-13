@@ -33,10 +33,10 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, monthName }) => {
   }
 
   return (
-    <div className="calendar-main">
-      <h1>
+    <div className="calendar-header">
+      {/* <h1>
         {monthName}, {year}.
-      </h1>
+      </h1> */}
 
       <div className="calendar-grid">
         {calendarBlocks.map((_, i) => (

@@ -1,5 +1,7 @@
-.calendar-main {
-    border: 2px solid crimson;
+.calendar-inputs {
+    border: 2px solid teal;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .calendar-grid {
@@ -9,3 +11,7 @@
     gap: 10px; /* space between blocks */
 }
 
+/* Calendar Block CSS */
+[class^="cal-block-"] {
+    border: 1px solid black; 
+}

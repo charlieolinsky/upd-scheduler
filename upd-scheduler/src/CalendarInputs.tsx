@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "./Calendar";
-import "./styles/CalendarInputs.css";
+import "./styles/Calendar.css";
 
 interface CalendarInputsProps {}
 
@@ -52,7 +52,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const selectedMonthName = month !== undefined ? months[month - 1] : "";
 
   return (
-    <>
+    <div className="calendar-main">
       <div className="calendar-inputs">
         <select value={selectedMonthName} onChange={handleMonthChange}>
           {months.map((monthOption, monthIndex) => (
@@ -74,7 +74,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
           <Calendar year={year} month={month} monthName={selectedMonthName} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

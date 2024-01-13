@@ -1,0 +1,50 @@
+.employee-bank-main{
+    /* Employee Bank is divided into two sections, header and table*/
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% auto 5%; 
+
+}
+
+.employee-bank-header{
+    /* Header takes lesser portion of the grid */
+    grid-row: 1;
+    border: 2px solid yellow;
+}
+
+.employee-bank-table {
+    /* Table takes greatest portion of the grid */
+    grid-row: 2; 
+
+    /* Give Employee Bank 3 columns and 15 rows*/
+    display: grid;
+    grid-template-columns: 40% 40% 20%; /* 3 Columns */
+    grid-template-rows: repeat(15, 1fr);  /* 15 rows */
+
+    /* General Styling */ 
+    border: 2px solid pink;
+}
+
+.employee-bank-add-btn{
+    /* Button takes lesser portion of the grid */
+    grid-row: 3; 
+    border: 2px solid green;
+}
+
+.employee-bank-name{
+    /* Names Exist in Column 1*/
+    grid-column: 1;
+    border: 2px solid red;
+}
+
+.employee-bank-count{
+    /* Counts Exist in Column 2*/
+    grid-column: 2;
+    border: 2px solid red;
+}
+
+.employee-bank-remove-btn{
+    /* Removal Exists in Column 3*/
+    grid-column: 3;
+    border: 2px solid red;
+}

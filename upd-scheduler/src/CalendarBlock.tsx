@@ -1,6 +1,6 @@
 import CalendarNumber from "./CalendarNumber";
 import CalendarNameCard from "./CalendarNameCard";
-import "./styles/CalendarBlock.css";
+import "./styles/Calendar.css";
 
 interface CalendarBlockProps {
   index: number;

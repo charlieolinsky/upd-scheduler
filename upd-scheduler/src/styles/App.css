@@ -1,0 +1,21 @@
+.app-main {
+    /* Create a grid with two columns and no rows to house components*/
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.employee-bank-main {
+    /* Place Employee Bank in the left column of the app*/
+    grid-column: 1;
+    border: 2px solid green;
+}
+
+.calendar-main {
+    /* Place Calendar in the right column of the app*/
+    grid-column: 2;
+
+    /* Other Styling */
+    border: 2px solid crimson;
+
+}
+
