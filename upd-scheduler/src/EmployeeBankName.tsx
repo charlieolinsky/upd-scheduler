@@ -3,7 +3,9 @@ interface EmployeeBankNameProps {}
 const EmployeeBankName: React.FC<EmployeeBankNameProps> = () => {
   return (
     <>
-      <h1>Craig</h1>
+      <div>
+        <input type="text" placeholder="Employee Name"></input>
+      </div>
     </>
   );
 };

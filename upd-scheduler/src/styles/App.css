@@ -8,6 +8,8 @@
     /* Place Employee Bank in the left column of the app*/
     grid-column: 1;
     border: 2px solid green;
+
+    padding-right: 10px;
 }
 
 .calendar-main {
@@ -16,6 +18,7 @@
 
     /* Other Styling */
     border: 2px solid crimson;
+    padding-left: 10px;
 
 }
 

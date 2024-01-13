@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
 
-interface EmployeeBankProps {}
-
-const EmployeeBank: React.FC<EmployeeBankProps> = () => {
-  const [employeeRows, setEmployeeRows] = useState<JSX.Element[]>([]);
+const EmployeeBank: React.FC = () => {
+  const [employeeRows, setEmployeeRows] = useState<number[]>([]);
 
   const handleAddEmployee = () => {
-    const newRow = <EmployeeBankTableRow key={employeeRows.length} />;
-    setEmployeeRows([...employeeRows, newRow]);
+    setEmployeeRows([...employeeRows, employeeRows.length]);
+  };
+
+  const handleRemoveEmployee = (index: number) => {
+    setEmployeeRows(employeeRows.filter((_, idx) => idx !== index));
   };
 
   return (
@@ -18,7 +19,12 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
         <h1>Employee Bank</h1>
       </div>
       <div className="employee-bank-table">
-        {employeeRows.map((employeeRow) => employeeRow)}
+        {employeeRows.map((_, index) => (
+          <EmployeeBankTableRow
+            key={index}
+            removeEmployee={() => handleRemoveEmployee(index)}
+          />
+        ))}
       </div>
       <div className="employee-bank-add-btn">
         <button type="button" onClick={handleAddEmployee}>
