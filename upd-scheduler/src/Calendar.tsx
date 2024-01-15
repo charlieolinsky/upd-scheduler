@@ -19,7 +19,6 @@ const Calendar: React.FC<CalendarProps> = ({
     <CalendarBlock
       index={i}
       calendarNumbers={Array(42).fill(null)}
-      handleScheduleEmployee={() => null}
       selectedEmployee={-1}
     />
   ));
@@ -28,7 +27,7 @@ const Calendar: React.FC<CalendarProps> = ({
   function getCalendarNumbers(year: number, month: number) {
     //Create a Date() for the first day of the month
     const firstDayOfMonth = new Date(year, month, 1);
-    //Get day of the week for that first day
+    //Get day of the week for the first day of the month
     const startingDayOfWeek = firstDayOfMonth.getDay();
     //Calculate the number of days in the month.
     const daysInMonth = new Date(year, month + 1, 0).getDate(); //Date points to the day before the first day of the next month. (last day of the current month)
@@ -43,10 +42,6 @@ const Calendar: React.FC<CalendarProps> = ({
     return calendarNumbers;
   }
 
-  const handleScheduleEmployee = (nameCardId: string) => {
-    console.log("Employee Assigned to NameCard #" + nameCardId);
-  };
-
   return (
     <div className="calendar-header">
       {/* <h1>
@@ -59,7 +54,6 @@ const Calendar: React.FC<CalendarProps> = ({
             key={i}
             index={i}
             calendarNumbers={getCalendarNumbers(year, month - 1)}
-            handleScheduleEmployee={handleScheduleEmployee}
             selectedEmployee={selectedEmployee}
           />
         ))}
