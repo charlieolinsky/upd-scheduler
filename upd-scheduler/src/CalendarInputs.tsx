@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import Calendar from "./Calendar";
 import "./styles/Calendar.css";
 
-interface CalendarInputsProps {}
+interface CalendarInputsProps {
+  selectedEmployee: number;
+}
 
-const CalendarInputs: React.FC<CalendarInputsProps> = () => {
+const CalendarInputs: React.FC<CalendarInputsProps> = ({
+  selectedEmployee,
+}) => {
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
 
@@ -71,7 +75,12 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
       </div>
       {year && month && (
         <div className="calendar">
-          <Calendar year={year} month={month} monthName={selectedMonthName} />
+          <Calendar
+            year={year}
+            month={month}
+            monthName={selectedMonthName}
+            selectedEmployee={selectedEmployee}
+          />
         </div>
       )}
     </div>

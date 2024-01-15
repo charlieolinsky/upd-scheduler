@@ -5,12 +5,23 @@ interface CalendarProps {
   year: number;
   month: number;
   monthName: string;
+  selectedEmployee: number;
 }
 
-const Calendar: React.FC<CalendarProps> = ({ year, month, monthName }) => {
+const Calendar: React.FC<CalendarProps> = ({
+  year,
+  month,
+  monthName,
+  selectedEmployee,
+}) => {
   //Create an array of 35 unique CalendarBlock components with unique indicies
   const calendarBlocks = Array.from({ length: 42 }, (_, i) => (
-    <CalendarBlock index={i} calendarNumbers={Array(42).fill(null)} />
+    <CalendarBlock
+      index={i}
+      calendarNumbers={Array(42).fill(null)}
+      handleScheduleEmployee={() => null}
+      selectedEmployee={-1}
+    />
   ));
 
   //Generate the appropriate numbers for each day of any given month or year
@@ -32,6 +43,10 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, monthName }) => {
     return calendarNumbers;
   }
 
+  const handleScheduleEmployee = (nameCardId: string) => {
+    console.log("Employee Assigned to NameCard #" + nameCardId);
+  };
+
   return (
     <div className="calendar-header">
       {/* <h1>
@@ -44,6 +59,8 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, monthName }) => {
             key={i}
             index={i}
             calendarNumbers={getCalendarNumbers(year, month - 1)}
+            handleScheduleEmployee={handleScheduleEmployee}
+            selectedEmployee={selectedEmployee}
           />
         ))}
       </div>

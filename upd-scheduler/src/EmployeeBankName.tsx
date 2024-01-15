@@ -1,3 +1,5 @@
+import "./styles/EmployeeBank.css";
+
 interface EmployeeBankNameProps {
   rowIndex: number;
 }
@@ -5,7 +7,9 @@ interface EmployeeBankNameProps {
 const EmployeeBankName: React.FC<EmployeeBankNameProps> = ({ rowIndex }) => {
   return (
     <>
-      <div>{rowIndex}</div>
+      <div className="employee-bank-name-input">
+        <input type="text" placeholder="Enter Name:"></input>
+      </div>
     </>
   );
 };

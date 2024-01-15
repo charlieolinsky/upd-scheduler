@@ -16,11 +16,6 @@
     /* Table takes greatest portion of the grid */
     grid-row: 2; 
 
-    /* Give Employee Bank 3 columns and 15 rows*/
-    display: grid;
-    grid-template-columns: 40% 40% 20%; /* 3 Columns */
-    grid-template-rows: repeat(15, 1fr);  /* 15 rows */
-
     /* General Styling */ 
     border: 2px solid pink;
 }
@@ -31,11 +26,22 @@
     border: 2px solid green;
 }
 
+.employee-bank-table-row {
+    display: grid;
+    grid-template-columns: 60% 20% 20%; /* Adjust as needed */
+
+    
+}
+
 .employee-bank-name{
     /* Names Exist in Column 1*/
     grid-column: 1;
     border: 2px solid red;
 }
+.employee-bank-name-input input {
+    width: 100%; /* Limits the input width to its parent container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  }
 
 .employee-bank-count{
     /* Counts Exist in Column 2*/

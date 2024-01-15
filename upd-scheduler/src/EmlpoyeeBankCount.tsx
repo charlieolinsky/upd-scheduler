@@ -1,9 +1,11 @@
+import "./styles/EmployeeBank.css";
+
 interface EmployeeBankCountProps {}
 
 const EmployeeBankCount: React.FC<EmployeeBankCountProps> = () => {
   return (
     <>
-      <h1>1</h1>
+      <h3>1</h3>
     </>
   );
 };

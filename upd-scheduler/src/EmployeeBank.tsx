@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
 
-const EmployeeBank: React.FC = () => {
+interface EmployeeBankProps {
+  setSelectedEmployee: (selectId: number) => void;
+}
+
+const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
   const [employeeRows, setEmployeeRows] = useState<Array<{ id: number }>>([]);
   const [nextId, setNextId] = useState(0);
 
@@ -17,6 +21,12 @@ const EmployeeBank: React.FC = () => {
     setEmployeeRows(newEmployeeRows);
   };
 
+  const handleSelectEmployee = (employeeId: number) => {
+    console.log("Employee Selected! ID: " + employeeId);
+    /* logic to find employee by ID */
+    setSelectedEmployee(employeeId);
+  };
+
   return (
     <div className="employee-bank-main">
       <div className="employee-bank-header">
@@ -28,6 +38,7 @@ const EmployeeBank: React.FC = () => {
             key={row.id}
             id={row.id}
             removeEmployee={handleRemoveEmployee}
+            handleSelectEmployee={handleSelectEmployee}
           />
         ))}
       </div>
