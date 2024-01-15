@@ -1,11 +1,11 @@
-interface EmployeeBankNameProps {}
+interface EmployeeBankNameProps {
+  rowIndex: number;
+}
 
-const EmployeeBankName: React.FC<EmployeeBankNameProps> = () => {
+const EmployeeBankName: React.FC<EmployeeBankNameProps> = ({ rowIndex }) => {
   return (
     <>
-      <div>
-        <input type="text" placeholder="Employee Name"></input>
-      </div>
+      <div>{rowIndex}</div>
     </>
   );
 };

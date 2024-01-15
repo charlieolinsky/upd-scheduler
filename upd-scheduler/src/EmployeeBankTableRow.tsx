@@ -2,22 +2,24 @@ import EmployeeBankCount from "./EmlpoyeeBankCount";
 import EmployeeBankName from "./EmployeeBankName";
 
 interface EmployeeBankTableRowProps {
-  removeEmployee: () => void;
+  id: number;
+  removeEmployee: (idToRemove: number) => void;
 }
 
 const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
+  id,
   removeEmployee,
 }) => {
   return (
     <>
       <div className="employee-bank-name">
-        <EmployeeBankName />
+        <EmployeeBankName rowIndex={id} />
       </div>
       <div className="employee-bank-count">
         <EmployeeBankCount />
       </div>
       <div className="employee-bank-remove-btn">
-        <button type="button" onClick={removeEmployee}>
+        <button type="button" onClick={() => removeEmployee(id)}>
           X
         </button>
       </div>

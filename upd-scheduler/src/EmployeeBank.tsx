@@ -3,26 +3,31 @@ import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
 
 const EmployeeBank: React.FC = () => {
-  const [employeeRows, setEmployeeRows] = useState<number[]>([]);
+  const [employeeRows, setEmployeeRows] = useState<Array<{ id: number }>>([]);
+  const [nextId, setNextId] = useState(0);
 
   const handleAddEmployee = () => {
-    setEmployeeRows([...employeeRows, employeeRows.length]);
+    const newEmployee = { id: nextId };
+    setEmployeeRows([...employeeRows, newEmployee]);
+    setNextId(nextId + 1);
   };
 
-  const handleRemoveEmployee = (index: number) => {
-    setEmployeeRows(employeeRows.filter((_, idx) => idx !== index));
+  const handleRemoveEmployee = (idToRemove: number) => {
+    const newEmployeeRows = employeeRows.filter((row) => row.id !== idToRemove);
+    setEmployeeRows(newEmployeeRows);
   };
 
   return (
     <div className="employee-bank-main">
       <div className="employee-bank-header">
-        <h1>Employee Bank</h1>
+        <h3>Employee Bank</h3>
       </div>
       <div className="employee-bank-table">
-        {employeeRows.map((_, index) => (
+        {employeeRows.map((row) => (
           <EmployeeBankTableRow
-            key={index}
-            removeEmployee={() => handleRemoveEmployee(index)}
+            key={row.id}
+            id={row.id}
+            removeEmployee={handleRemoveEmployee}
           />
         ))}
       </div>

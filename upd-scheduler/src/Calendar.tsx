@@ -41,6 +41,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, monthName }) => {
       <div className="calendar-grid">
         {calendarBlocks.map((_, i) => (
           <CalendarBlock
+            key={i}
             index={i}
             calendarNumbers={getCalendarNumbers(year, month - 1)}
           />
