@@ -1,21 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
+import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 
 interface EmployeeBankProps {
   setSelectedEmployee: (name: string) => void;
 }
 
 const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
-  const [employeeRows, setEmployeeRows] = useState<
-    Array<{ id: number; name: string }>
-  >([]);
   const [nextId, setNextId] = useState(0);
+  const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
 
   const handleAddEmployee = () => {
     const enteredName = prompt("Enter Employee Name: ");
     if (enteredName) {
-      const newEmployee = { id: nextId, name: enteredName };
+      const newEmployee = { id: nextId, name: enteredName, count: 0 };
       setEmployeeRows([...employeeRows, newEmployee]);
       setNextId(nextId + 1);
     }
@@ -42,6 +41,7 @@ const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
             key={row.id}
             id={row.id}
             employeeName={row.name}
+            employeeCount={row.count}
             handleRemoveEmployee={handleRemoveEmployee}
             handleSelectEmployee={handleSelectEmployee}
           />

@@ -3,6 +3,7 @@ import EmployeeBankCount from "./EmlpoyeeBankCount";
 interface EmployeeBankTableRowProps {
   id: number;
   employeeName: string;
+  employeeCount: number;
   handleRemoveEmployee: (idToRemove: number) => void;
   handleSelectEmployee: (name: string) => void;
 }
@@ -10,6 +11,7 @@ interface EmployeeBankTableRowProps {
 const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
   id,
   employeeName,
+  employeeCount,
   handleRemoveEmployee,
   handleSelectEmployee,
 }) => {
@@ -22,7 +24,7 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
         <h3>{employeeName}</h3>
       </div>
       <div className="employee-bank-count">
-        <EmployeeBankCount />
+        <h3>{employeeCount}</h3>
       </div>
       <div className="employee-bank-remove-btn">
         <button type="button" onClick={() => handleRemoveEmployee(id)}>

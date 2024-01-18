@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 
 interface CalendarNameCardProps {
   nameCardId: string;
@@ -10,6 +11,7 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
   selectedEmployee,
 }) => {
   const [employee, setEmployee] = useState("N/A");
+  const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
 
   const handleScheduleEmployee = (nameCardId: string) => {
     console.log(
@@ -19,6 +21,19 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
         nameCardId
     );
 
+    // Create a new array with updated count for the selected employee
+    const updatedEmployeeRows = employeeRows.map((row) => {
+      if (row.name === selectedEmployee) {
+        // Increment the count for the matched employee
+        return { ...row, count: row.count + 1 };
+      }
+      return row; // Return the row unchanged if it's not the matched employee
+    });
+
+    // Update the state with the new array
+    setEmployeeRows(updatedEmployeeRows);
+
+    // Set the employee name for the current name card
     setEmployee(selectedEmployee);
   };
 
