@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import EmployeeBankCount from "./EmlpoyeeBankCount";
-import EmployeeBankName from "./EmployeeBankName";
 
 interface EmployeeBankTableRowProps {
   id: number;
@@ -21,7 +19,7 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
         className="employee-bank-name"
         onClick={() => handleSelectEmployee(employeeName)}
       >
-        <EmployeeBankName employeeName={employeeName} />
+        <h3>{employeeName}</h3>
       </div>
       <div className="employee-bank-count">
         <EmployeeBankCount />

@@ -11,7 +11,7 @@ interface CalendarProps {
 const Calendar: React.FC<CalendarProps> = ({
   year,
   month,
-  monthName,
+  //monthName,
   selectedEmployee,
 }) => {
   //Create an array of 35 unique CalendarBlock components with unique indicies
