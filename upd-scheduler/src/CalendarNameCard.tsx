@@ -2,7 +2,7 @@ import { useState } from "react";
 
 interface CalendarNameCardProps {
   nameCardId: string;
-  selectedEmployee: number;
+  selectedEmployee: string;
 }
 
 const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
@@ -13,10 +13,13 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
 
   const handleScheduleEmployee = (nameCardId: string) => {
     console.log(
-      "Employee #" + selectedEmployee + " scheduled to NameCard " + nameCardId
+      "Employee Name: " +
+        selectedEmployee +
+        " scheduled to NameCard " +
+        nameCardId
     );
 
-    setEmployee(selectedEmployee.toString() + nameCardId);
+    setEmployee(selectedEmployee);
   };
 
   return (

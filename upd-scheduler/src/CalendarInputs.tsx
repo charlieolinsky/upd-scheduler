@@ -3,7 +3,7 @@ import Calendar from "./Calendar";
 import "./styles/Calendar.css";
 
 interface CalendarInputsProps {
-  selectedEmployee: number;
+  selectedEmployee: string;
 }
 
 const CalendarInputs: React.FC<CalendarInputsProps> = ({

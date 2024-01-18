@@ -5,7 +5,7 @@ import "./styles/Calendar.css";
 interface CalendarBlockProps {
   index: number;
   calendarNumbers: any[];
-  selectedEmployee: number;
+  selectedEmployee: string;
 }
 
 const CalendarBlock: React.FC<CalendarBlockProps> = ({

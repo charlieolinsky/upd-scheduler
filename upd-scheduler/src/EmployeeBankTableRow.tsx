@@ -1,10 +1,11 @@
+import { useState } from "react";
 import EmployeeBankCount from "./EmlpoyeeBankCount";
 import EmployeeBankName from "./EmployeeBankName";
 
 interface EmployeeBankTableRowProps {
   id: number;
   removeEmployee: (idToRemove: number) => void;
-  handleSelectEmployee: (selectId: number) => void;
+  handleSelectEmployee: (name: string) => void;
 }
 
 const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
@@ -12,13 +13,15 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
   removeEmployee,
   handleSelectEmployee,
 }) => {
+  const [name, setName] = useState("Err");
+
   return (
     <div className="employee-bank-table-row">
       <div
         className="employee-bank-name"
-        onClick={() => handleSelectEmployee(id)}
+        onClick={() => handleSelectEmployee(name)}
       >
-        <EmployeeBankName rowIndex={id} />
+        <EmployeeBankName setName={setName} />
       </div>
       <div className="employee-bank-count">
         <EmployeeBankCount />

@@ -5,7 +5,7 @@ interface CalendarProps {
   year: number;
   month: number;
   monthName: string;
-  selectedEmployee: number;
+  selectedEmployee: string;
 }
 
 const Calendar: React.FC<CalendarProps> = ({
@@ -19,7 +19,7 @@ const Calendar: React.FC<CalendarProps> = ({
     <CalendarBlock
       index={i}
       calendarNumbers={Array(42).fill(null)}
-      selectedEmployee={-1}
+      selectedEmployee={"NaN"}
     />
   ));
 

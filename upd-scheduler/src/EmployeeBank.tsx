@@ -3,7 +3,7 @@ import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
 
 interface EmployeeBankProps {
-  setSelectedEmployee: (selectId: number) => void;
+  setSelectedEmployee: (name: string) => void;
 }
 
 const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
@@ -21,10 +21,10 @@ const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
     setEmployeeRows(newEmployeeRows);
   };
 
-  const handleSelectEmployee = (employeeId: number) => {
-    console.log("Employee Selected! ID: " + employeeId);
+  const handleSelectEmployee = (employeeName: string) => {
+    console.log("Employee Selected! Name: " + employeeName);
     /* logic to find employee by ID */
-    setSelectedEmployee(employeeId);
+    setSelectedEmployee(employeeName);
   };
 
   return (
