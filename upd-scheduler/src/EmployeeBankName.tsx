@@ -1,18 +1,16 @@
 import "./styles/EmployeeBank.css";
 
 interface EmployeeBankNameProps {
-  setName: (name: string) => void;
+  employeeName: string;
 }
 
-const EmployeeBankName: React.FC<EmployeeBankNameProps> = ({ setName }) => {
+const EmployeeBankName: React.FC<EmployeeBankNameProps> = ({
+  employeeName,
+}) => {
   return (
     <>
-      <div className="employee-bank-name-input">
-        <input
-          type="text"
-          placeholder="Enter Name:"
-          onChange={(event) => setName(event.target.value)}
-        ></input>
+      <div className="employee-bank-name">
+        <h3>{employeeName}</h3>
       </div>
     </>
   );
