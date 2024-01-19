@@ -45,6 +45,9 @@
     
     border: 0.2px solid lightgray;
     border-radius: 5px;
+
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .employee-bank-name h3, .employee-bank-count h3 {
@@ -63,8 +66,17 @@
     padding-left: 5px;
     justify-content: flex-start;
 }
+.employee-bank-count {
+    background-color: whitesmoke;
+}
 
 /* Buttons */
+
+.employee-bank-remove-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 
 .employee-bank-remove-btn button {
     background-color: lightgray;
@@ -72,6 +84,7 @@
     border: none;
     border-radius: 10px;
     padding: 10px 15px;
+    margin-right: 2px;
     cursor: pointer;
 }
 .employee-bank-remove-btn button:hover {
