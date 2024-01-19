@@ -1,4 +1,13 @@
+.calendar-main{
+    /* Divide Calendar into 3 portions*/
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 5% 90%;
+}
+
 .calendar-inputs {
+    grid-row: 1;
+
     /* border: 2px solid teal; */
     padding-top: 10px;
     padding-bottom: 10px;
@@ -9,19 +18,42 @@
     align-items: center;
 }
 
+.calendar-days{
+    grid-row: 2;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+}
+
+.calendar-day {
+    /* Style for Individal Days */ 
+}
+
 .calendar-grid {
+    grid-row: 3;
+
+    /* Calendar Grid Itself */
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* 7 columns */
-    grid-template-rows: repeat(5, 1fr); /* 5 rows */
+    grid-template-rows: repeat(6, 1fr); /* 6 rows */
     gap: 10px; /* space between blocks */
 }
 
 /* Calendar Block CSS */
-[class^="cal-block-"] {
+.calendar-block {
     border: 1px solid black; 
+    border-radius: 5px;
 }
 
-.cal-name-card {
+.calendar-name-card {
     font-size: medium;
     margin: 2px;
+}
+
+.calendar-number {
+    font-weight: bolder;
+    font-size: large;
+    margin: 2px;
+    
 }

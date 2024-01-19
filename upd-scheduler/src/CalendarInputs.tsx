@@ -22,6 +22,16 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
     setMonth(monthNumber);
   };
 
+  const days: string[] = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
   const months: string[] = [
     "January",
     "February",
@@ -76,6 +86,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
       {year && month && (
         <div className="calendar">
           <Calendar
+            days={days}
             year={year}
             month={month}
             monthName={selectedMonthName}

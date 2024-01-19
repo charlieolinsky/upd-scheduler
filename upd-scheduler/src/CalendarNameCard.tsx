@@ -39,7 +39,7 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
 
   return (
     <div
-      className="cal-name-card"
+      className="calendar-name-card"
       onClick={() => handleScheduleEmployee(nameCardId)}
     >
       <h2>{employee}</h2>

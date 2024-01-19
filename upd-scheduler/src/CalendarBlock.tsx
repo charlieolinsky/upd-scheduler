@@ -14,7 +14,7 @@ const CalendarBlock: React.FC<CalendarBlockProps> = ({
   selectedEmployee,
 }) => {
   return (
-    <div className={`cal-block-${index}`}>
+    <div className="calendar-block">
       <CalendarNumber number={calendarNumbers[index]} />
       <CalendarNameCard
         nameCardId={index + "a"}

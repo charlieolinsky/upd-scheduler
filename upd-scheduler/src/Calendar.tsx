@@ -2,6 +2,7 @@ import CalendarBlock from "./CalendarBlock";
 import "./styles/Calendar.css";
 
 interface CalendarProps {
+  days: string[];
   year: number;
   month: number;
   monthName: string;
@@ -9,6 +10,7 @@ interface CalendarProps {
 }
 
 const Calendar: React.FC<CalendarProps> = ({
+  days,
   year,
   month,
   //monthName,
@@ -43,16 +45,25 @@ const Calendar: React.FC<CalendarProps> = ({
   }
 
   return (
-    <div className="calendar-grid">
-      {calendarBlocks.map((_, i) => (
-        <CalendarBlock
-          key={i}
-          index={i}
-          calendarNumbers={getCalendarNumbers(year, month - 1)}
-          selectedEmployee={selectedEmployee}
-        />
-      ))}
-    </div>
+    <>
+      <div className="calendar-days">
+        {days.map((day, index) => (
+          <div key={index} className="calendar-day">
+            {day}
+          </div>
+        ))}
+      </div>
+      <div className="calendar-grid">
+        {calendarBlocks.map((_, i) => (
+          <CalendarBlock
+            key={i}
+            index={i}
+            calendarNumbers={getCalendarNumbers(year, month - 1)}
+            selectedEmployee={selectedEmployee}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 export default Calendar;
