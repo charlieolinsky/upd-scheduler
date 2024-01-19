@@ -1,5 +1,3 @@
-import EmployeeBankCount from "./EmlpoyeeBankCount";
-
 interface EmployeeBankTableRowProps {
   id: number;
   employeeName: string;

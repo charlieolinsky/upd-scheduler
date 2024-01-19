@@ -19,7 +19,7 @@ const Calendar: React.FC<CalendarProps> = ({
     <CalendarBlock
       index={i}
       calendarNumbers={Array(42).fill(null)}
-      selectedEmployee={"NaN"}
+      selectedEmployee={""}
     />
   ));
 
@@ -43,21 +43,15 @@ const Calendar: React.FC<CalendarProps> = ({
   }
 
   return (
-    <div className="calendar-header">
-      {/* <h1>
-        {monthName}, {year}.
-      </h1> */}
-
-      <div className="calendar-grid">
-        {calendarBlocks.map((_, i) => (
-          <CalendarBlock
-            key={i}
-            index={i}
-            calendarNumbers={getCalendarNumbers(year, month - 1)}
-            selectedEmployee={selectedEmployee}
-          />
-        ))}
-      </div>
+    <div className="calendar-grid">
+      {calendarBlocks.map((_, i) => (
+        <CalendarBlock
+          key={i}
+          index={i}
+          calendarNumbers={getCalendarNumbers(year, month - 1)}
+          selectedEmployee={selectedEmployee}
+        />
+      ))}
     </div>
   );
 };

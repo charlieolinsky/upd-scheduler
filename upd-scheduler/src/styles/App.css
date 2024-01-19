@@ -7,9 +7,7 @@
 .employee-bank-main {
     /* Place Employee Bank in the left column of the app*/
     grid-column: 1;
-    border: 2px solid green;
-
-    padding-right: 10px;
+    /* border: 2px solid green; */
 }
 
 .calendar-main {
@@ -17,8 +15,22 @@
     grid-column: 2;
 
     /* Other Styling */
-    border: 2px solid crimson;
-    padding-left: 10px;
+    /* border: 2px solid crimson; */
+    margin-left: 10px;
 
+}
+
+/* Include the Google Font link in your HTML or import it here */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Set the font globally */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
 }
 

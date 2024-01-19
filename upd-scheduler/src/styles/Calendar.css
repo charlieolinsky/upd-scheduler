@@ -1,7 +1,12 @@
 .calendar-inputs {
-    border: 2px solid teal;
+    /* border: 2px solid teal; */
     padding-top: 10px;
     padding-bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .calendar-grid {
@@ -14,4 +19,9 @@
 /* Calendar Block CSS */
 [class^="cal-block-"] {
     border: 1px solid black; 
+}
+
+.cal-name-card {
+    font-size: medium;
+    margin: 2px;
 }

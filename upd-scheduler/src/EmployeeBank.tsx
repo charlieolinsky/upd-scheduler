@@ -46,11 +46,15 @@ const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
             handleSelectEmployee={handleSelectEmployee}
           />
         ))}
-      </div>
-      <div className="employee-bank-add-btn">
-        <button type="button" onClick={handleAddEmployee}>
-          +
-        </button>
+        <div>
+          <button
+            className="employee-bank-add-btn"
+            type="button"
+            onClick={handleAddEmployee}
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );
