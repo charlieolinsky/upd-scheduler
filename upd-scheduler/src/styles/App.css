@@ -33,3 +33,12 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
+/* Color Scheme */
+:root {
+    --new-paltz-lighter-blue: #CFF2EC;
+    --new-paltz-light-blue: #63CFDB;
+    --new-paltz-blue: #3A8DB5;
+    --new-paltz-dark-orange: #F87941;
+    --new-paltz-orange: #F6AF5D;
+}
+

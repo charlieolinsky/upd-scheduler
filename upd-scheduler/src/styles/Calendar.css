@@ -24,10 +24,18 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     justify-items: center;
+
+    background-color: var(--new-paltz-blue);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px 3px;
+    margin-bottom: 5px;
+
 }
 
 .calendar-day {
-    /* Style for Individal Days */ 
+    /* Style for Individal Days */
 }
 
 .calendar-grid {
@@ -44,11 +52,18 @@
 .calendar-block {
     border: 1px solid black; 
     border-radius: 5px;
+
+    padding-bottom: 10px;
+    background-color: white;
 }
 
 .calendar-name-card {
-    font-size: medium;
-    margin: 2px;
+    font-size: small;
+    color: grey;
+    margin: 5px;
+    padding-left: 2px;
+
+
 }
 
 .calendar-number {

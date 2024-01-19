@@ -1,10 +1,12 @@
+
+
 .employee-bank-main{
     /* Employee Bank is divided into two sections, header and table*/
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 5% auto; 
 
-    margin-top: 40px;
+    margin-top: 46px;
 
     border: 1px solid black;
     border-radius: 5px;
@@ -18,6 +20,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: var(--new-paltz-blue);
+    color: white;
+    margin-bottom: 5px;
     
 }
 .employee-bank-table {
@@ -61,32 +67,42 @@
 /* Buttons */
 
 .employee-bank-remove-btn button {
-    background-color: red;
-    color: white;
+    background-color: lightgray;
+    color: black;
     border: none;
     border-radius: 10px;
     padding: 10px 15px;
     cursor: pointer;
 }
 .employee-bank-remove-btn button:hover {
-    background-color: darkred;
+    background-color: rgb(230, 0, 0);
+    color: white;
 }
 
-.employee-bank-add-btn{
+.employee-bank-add-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employee-bank-add-btn button{
     /* Button takes lesser portion of the grid */
-    width: 100%;
-    margin-top: 5px;
+    width: 95%;
+    align-self: center;
 
     background-color: lightgrey; /* Green background */
     color: black; /* White text color */
     border: none; /* Remove default border */
     border-radius: 10px; /* Rounded corners */
-    padding: 10px 20px; /* More padding for a wider button */
-    cursor: pointer; /* Cursor pointer on hover */
+    
+    padding: 8px;
+    margin-top: 5px;
     margin-bottom: 10px; /* Add some margin at the bottom if needed */
+
+    cursor: pointer; /* Cursor pointer on hover */
     
 }
-.employee-bank-add-btn:hover{
+.employee-bank-add-btn button:hover{
     background-color: lightgreen;
     cursor: pointer; /* Cursor pointer on hover */
 }
