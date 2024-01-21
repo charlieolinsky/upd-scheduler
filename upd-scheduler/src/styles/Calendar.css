@@ -5,20 +5,39 @@
     grid-template-rows: 5% 5% 90%;
 }
 
-.calendar-inputs {
+.calendar-toolbar {
     grid-row: 1;
-
-    /* border: 2px solid teal; */
-    padding-top: 10px;
-    padding-bottom: 10px;
-
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    padding: 0 10px;
+}
+
+.dropdowns-wrapper {
+    flex-grow: 1; /* Allows the dropdowns wrapper to take up available space */
+    display: flex;
+    justify-content: center; /* Centers the dropdowns */
+    padding-right: 55px;
+}
+
+.toggle-wrapper {
+    flex-shrink: 0; /* Prevents the toggle from shrinking */
+}
+
+.calendar-inputs {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Toggle CSS -- START */
+
+.calendar-schedule-mode-toggle {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 /* Hide the default checkbox */
 .calendar-schedule-mode-toggle input[type="checkbox"] {
@@ -68,7 +87,7 @@
     font-size: 12px; /* Text size */
     position: absolute; /* Position relative to the label */
     top: 50%; /* Center vertically */
-    left: 120%; /* Adjust horizontal position */
+    left: 120%;  /* Adjust horizontal position */
     transform: translateY(-50%); /* Center vertically */
   }
   
