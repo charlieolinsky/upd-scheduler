@@ -19,16 +19,19 @@ const CalendarBlock: React.FC<CalendarBlockProps> = ({
     <div className="calendar-block">
       <CalendarNumber number={calendarNumbers[index]} />
       <CalendarNameCard
+        blockId={index}
         nameCardId={index + "a"}
         selectedEmployee={selectedEmployee}
         scheduleMode={scheduleMode}
       />
       <CalendarNameCard
+        blockId={index}
         nameCardId={index + "b"}
         selectedEmployee={selectedEmployee}
         scheduleMode={scheduleMode}
       />
       <CalendarNameCard
+        blockId={index}
         nameCardId={index + "c"}
         selectedEmployee={selectedEmployee}
         scheduleMode={scheduleMode}

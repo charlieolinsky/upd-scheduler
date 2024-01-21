@@ -6,7 +6,7 @@ import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 
 function App() {
   const [employeeRows, setEmployeeRows] = useState<
-    Array<{ id: number; name: string; count: number }>
+    Array<{ id: number; name: string; count: number; blocks: Array<number> }>
   >([]);
   const [selectedEmployee, setSelectedEmployee] = useState<string>("NaN");
 

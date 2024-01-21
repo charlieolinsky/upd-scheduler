@@ -14,7 +14,12 @@ const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
   const handleAddEmployee = () => {
     const enteredName = prompt("Enter Employee Name: ");
     if (enteredName) {
-      const newEmployee = { id: nextId, name: enteredName, count: 0 };
+      const newEmployee = {
+        id: nextId,
+        name: enteredName,
+        count: 0,
+        blocks: [],
+      };
       setEmployeeRows([...employeeRows, newEmployee]);
       setNextId(nextId + 1);
     }

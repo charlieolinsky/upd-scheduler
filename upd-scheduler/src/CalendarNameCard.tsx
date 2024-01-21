@@ -2,53 +2,74 @@ import { useState, useContext } from "react";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 
 interface CalendarNameCardProps {
+  blockId: number;
   nameCardId: string;
   selectedEmployee: string;
   scheduleMode: boolean;
 }
 
 const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
+  blockId,
   nameCardId,
   selectedEmployee,
   scheduleMode,
 }) => {
-  const [employee, setEmployee] = useState("N/A");
+  //employee represents the current name on the card
+  const [employee, setEmployee] = useState<string>("N/A");
+  //employeeRows represents the EmployeeBank
   const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
 
   const handleScheduleEmployee = (nameCardId: string) => {
-    if (scheduleMode) {
-      console.log(
-        "Employee Name: " +
-          selectedEmployee +
-          " scheduled to NameCard " +
-          nameCardId
-      );
+    let isUpdated = false; //flag to track if an update is made
 
+    if (scheduleMode) {
       // Create a new array with updated count for the selected employee
       const updatedEmployeeRows = employeeRows.map((row) => {
-        if (row.name === selectedEmployee) {
-          // Increment the count for the matched employee
-          return { ...row, count: row.count + 1 };
+        if (row.name === selectedEmployee && !row.blocks.includes(blockId)) {
+          // Increment the count for the matched employee and add the blockID and set flag
+          isUpdated = true;
+          return {
+            ...row,
+            count: row.count + 1,
+            blocks: [...row.blocks, blockId],
+          };
         }
         return row; // Return the row unchanged if it's not the matched employee
       });
 
-      // Update the state with the new array
-      setEmployeeRows(updatedEmployeeRows);
-      // Set the employee name for the current name card
-      setEmployee(selectedEmployee);
-    } else {
-      console.log("Employee Deschduled from NameCard " + nameCardId);
+      if (isUpdated) {
+        // Update the state with the new array
+        setEmployeeRows(updatedEmployeeRows);
+        // Set the employee name for the current name card
+        setEmployee(selectedEmployee);
 
+        console.log(
+          "Employee Name: " +
+            selectedEmployee +
+            " scheduled to NameCard " +
+            nameCardId
+        );
+      }
+    } else {
       if (employee !== "N/A") {
         const updatedEmployeeRows = employeeRows.map((row) => {
           if (row.name === employee) {
-            return { ...row, count: row.count > 0 ? row.count - 1 : 0 };
+            //Decrement Count, Remove the blockID from the employees blocks array, set flag
+            isUpdated = true;
+            const newBlocks = row.blocks?.filter((id) => id !== blockId);
+            return {
+              ...row,
+              count: row.count > 0 ? row.count - 1 : 0,
+              blocks: newBlocks,
+            };
           }
           return row;
         });
-        setEmployeeRows(updatedEmployeeRows);
-        setEmployee("N/A");
+        if (isUpdated) {
+          setEmployeeRows(updatedEmployeeRows);
+          setEmployee("N/A");
+          console.log("Employee Deschduled from NameCard " + nameCardId);
+        }
       }
     }
   };

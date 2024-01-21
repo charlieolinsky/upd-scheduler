@@ -11,6 +11,7 @@ interface EmployeeRow {
   id: number;
   name: string;
   count: number;
+  blocks: Array<number>;
 }
 
 // Define the type for the context
