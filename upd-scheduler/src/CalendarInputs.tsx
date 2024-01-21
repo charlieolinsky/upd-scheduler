@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "./Calendar";
 import "./styles/Calendar.css";
 
@@ -12,6 +12,8 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
 
+  const [scheduleMode, setScheduleMode] = useState<boolean>(true);
+
   const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(parseInt(event.target.value));
   };
@@ -21,6 +23,15 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
     const monthNumber = months.indexOf(selectedMonthName) + 1;
     setMonth(monthNumber);
   };
+
+  const handleScheduleModeChange = () => {
+    setScheduleMode(!scheduleMode);
+  };
+
+  //Debug
+  useEffect(() => {
+    console.log("Mode set to: " + (scheduleMode ? "Schedule" : "Deschedule"));
+  }, [scheduleMode]);
 
   const days: string[] = [
     "Sunday",
@@ -83,6 +94,18 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
           ))}
         </select>
       </div>
+      <div className="calendar-schedule-mode-toggle">
+        <label htmlFor="toggleSwitch">
+          MODE: {scheduleMode ? "Schedule" : "Deschedule"}
+        </label>
+        <input
+          placeholder={scheduleMode ? "Schedule" : "Deschedule"}
+          type="checkbox"
+          id="toggleSwitch"
+          checked={scheduleMode}
+          onChange={handleScheduleModeChange}
+        />
+      </div>
       {year && month && (
         <div className="calendar">
           <Calendar
@@ -91,6 +114,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
             month={month}
             monthName={selectedMonthName}
             selectedEmployee={selectedEmployee}
+            scheduleMode={scheduleMode}
           />
         </div>
       )}

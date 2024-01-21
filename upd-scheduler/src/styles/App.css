@@ -1,3 +1,6 @@
+/* Include the Google Font link in your HTML or import it here */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .app-main {
     /* Create a grid with two columns and no rows to house components*/
     display: grid;
@@ -18,9 +21,6 @@
     margin-left: 10px;
 
 }
-
-/* Include the Google Font link in your HTML or import it here */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Set the font globally */
 body {

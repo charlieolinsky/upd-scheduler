@@ -7,6 +7,7 @@ interface CalendarProps {
   month: number;
   monthName: string;
   selectedEmployee: string;
+  scheduleMode: boolean;
 }
 
 const Calendar: React.FC<CalendarProps> = ({
@@ -15,6 +16,7 @@ const Calendar: React.FC<CalendarProps> = ({
   month,
   //monthName,
   selectedEmployee,
+  scheduleMode,
 }) => {
   //Create an array of 35 unique CalendarBlock components with unique indicies
   const calendarBlocks = Array.from({ length: 42 }, (_, i) => (
@@ -22,6 +24,7 @@ const Calendar: React.FC<CalendarProps> = ({
       index={i}
       calendarNumbers={Array(42).fill(null)}
       selectedEmployee={""}
+      scheduleMode={scheduleMode}
     />
   ));
 
@@ -60,6 +63,7 @@ const Calendar: React.FC<CalendarProps> = ({
             index={i}
             calendarNumbers={getCalendarNumbers(year, month - 1)}
             selectedEmployee={selectedEmployee}
+            scheduleMode={scheduleMode}
           />
         ))}
       </div>
