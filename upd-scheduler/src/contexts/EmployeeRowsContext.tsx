@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  createContext,
-  useContext,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import { createContext, useContext, Dispatch, SetStateAction } from "react";
 
 // Define the type for the employee row
 interface EmployeeRow {

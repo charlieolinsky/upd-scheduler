@@ -18,6 +18,64 @@
     align-items: center;
 }
 
+/* Toggle CSS -- START */
+
+/* Hide the default checkbox */
+.calendar-schedule-mode-toggle input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  /* Create a custom toggle switch */
+  .calendar-schedule-mode-toggle label {
+    cursor: pointer;
+    width: 50px; /* Width of the toggle */
+    height: 25px; /* Height of the toggle */
+    background: rgb(230, 0, 0); /* Background of the toggle when it's off */
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  /* Creating the slider */
+  .calendar-schedule-mode-toggle label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px; /* Width of the slider */
+    height: 21px; /* Height of the slider */
+    background: #fff; /* Background of the slider */
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  /* Move the slider when the checkbox is checked */
+  .calendar-schedule-mode-toggle input:checked + label {
+    background: lightgreen; /* Background of the toggle when it's on */
+  }
+  
+  .calendar-schedule-mode-toggle input:checked + label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
+  
+  /* Styling the text within the span */
+  .calendar-schedule-mode-toggle label span {
+    pointer-events: none;
+    color: black; /* Text color */
+    font-size: 12px; /* Text size */
+    position: absolute; /* Position relative to the label */
+    top: 50%; /* Center vertically */
+    left: 120%; /* Adjust horizontal position */
+    transform: translateY(-50%); /* Center vertically */
+  }
+  
+  /* Toggle CSS -- END */
+  
+
+
 .calendar-days{
     grid-row: 2;
 

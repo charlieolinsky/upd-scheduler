@@ -95,17 +95,17 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
         </select>
       </div>
       <div className="calendar-schedule-mode-toggle">
-        <label htmlFor="toggleSwitch">
-          MODE: {scheduleMode ? "Schedule" : "Deschedule"}
-        </label>
         <input
-          placeholder={scheduleMode ? "Schedule" : "Deschedule"}
           type="checkbox"
           id="toggleSwitch"
           checked={scheduleMode}
           onChange={handleScheduleModeChange}
         />
+        <label htmlFor="toggleSwitch">
+          <span>{scheduleMode ? "Schedule" : "Deschedule"}</span>
+        </label>
       </div>
+
       {year && month && (
         <div className="calendar">
           <Calendar
