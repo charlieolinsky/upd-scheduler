@@ -79,37 +79,33 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
   return (
     <div className="calendar-main">
       <div className="calendar-toolbar">
-        <div className="toggle-wrapper">
-          <div className="calendar-schedule-mode-toggle">
-            <input
-              type="checkbox"
-              id="toggleSwitch"
-              checked={scheduleMode}
-              onChange={handleScheduleModeChange}
-            />
-            <label htmlFor="toggleSwitch">
-              <span>{scheduleMode ? "Schedule" : "Deschedule"}</span>
-            </label>
-          </div>
+        <div className="calendar-schedule-mode-toggle">
+          <input
+            type="checkbox"
+            id="toggleSwitch"
+            checked={scheduleMode}
+            onChange={handleScheduleModeChange}
+          />
+          <label htmlFor="toggleSwitch">
+            <span>{scheduleMode ? "Schedule" : "Deschedule"}</span>
+          </label>
         </div>
 
-        <div className="dropdowns-wrapper">
-          <div className="calendar-inputs">
-            <select value={selectedMonthName} onChange={handleMonthChange}>
-              {months.map((monthOption, monthIndex) => (
-                <option key={monthIndex} value={monthOption}>
-                  {monthOption}
-                </option>
-              ))}
-            </select>
-            <select value={year} onChange={handleYearChange}>
-              {years.map((yearOption, yearIndex) => (
-                <option key={yearIndex} value={yearOption}>
-                  {yearOption}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div className="calendar-inputs">
+          <select value={selectedMonthName} onChange={handleMonthChange}>
+            {months.map((monthOption, monthIndex) => (
+              <option key={monthIndex} value={monthOption}>
+                {monthOption}
+              </option>
+            ))}
+          </select>
+          <select value={year} onChange={handleYearChange}>
+            {years.map((yearOption, yearIndex) => (
+              <option key={yearIndex} value={yearOption}>
+                {yearOption}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 

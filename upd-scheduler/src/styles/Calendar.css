@@ -7,20 +7,11 @@
 
 .calendar-toolbar {
     grid-row: 1;
+    
     display: flex;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.dropdowns-wrapper {
-    flex-grow: 1; /* Allows the dropdowns wrapper to take up available space */
-    display: flex;
-    justify-content: center; /* Centers the dropdowns */
-    padding-right: 55px;
-}
-
-.toggle-wrapper {
-    flex-shrink: 0; /* Prevents the toggle from shrinking */
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 50% 0px 10px;
 }
 
 .calendar-inputs {
