@@ -92,14 +92,18 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
         </div>
 
         <div className="calendar-inputs">
-          <select value={selectedMonthName} onChange={handleMonthChange}>
+          <select
+            id="month-select"
+            value={selectedMonthName}
+            onChange={handleMonthChange}
+          >
             {months.map((monthOption, monthIndex) => (
               <option key={monthIndex} value={monthOption}>
                 {monthOption}
               </option>
             ))}
           </select>
-          <select value={year} onChange={handleYearChange}>
+          <select id="year-select" value={year} onChange={handleYearChange}>
             {years.map((yearOption, yearIndex) => (
               <option key={yearIndex} value={yearOption}>
                 {yearOption}
