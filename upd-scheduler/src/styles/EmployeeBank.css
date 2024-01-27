@@ -1,15 +1,20 @@
 
 
 .employee-bank-main{
+
+    position: sticky;
+    top: 0%;
+    
     /* Employee Bank is divided into two sections, header and table*/
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 5% auto; 
-
-    margin-top: 46px;
+    grid-template-rows: auto auto; 
+    margin-top: 50px;
 
     border: 1px solid black;
     border-radius: 5px;
+
+    height: fit-content;
 
 }
 .employee-bank-header{
@@ -24,6 +29,7 @@
     background-color: var(--new-paltz-blue);
     color: white;
     margin-bottom: 5px;
+    padding: 5px;
     
 }
 .employee-bank-table {
@@ -41,7 +47,7 @@
 .employee-bank-table-row {
     display: grid;
     grid-template-columns: 60% 20% 20%;
-    height: 40px; /* Adjusted height */
+    height: 40px;
     
     border: 0.2px solid lightgray;
     border-radius: 5px;
@@ -110,7 +116,7 @@
     
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 10px; /* Add some margin at the bottom if needed */
+    margin-bottom: 10px;  /* Add some margin at the bottom if needed */
 
     cursor: pointer; /* Cursor pointer on hover */
     
