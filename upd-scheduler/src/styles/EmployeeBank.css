@@ -16,6 +16,8 @@
 
     height: fit-content;
 
+    box-shadow: 3px 3px 3px lightgrey;
+
 }
 .employee-bank-header{
     /* Header takes lesser portion of the grid */
@@ -26,7 +28,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--new-paltz-blue);
+    background-color: var(--highlighter-blue);
     color: white;
     margin-bottom: 5px;
     padding: 5px;
@@ -97,7 +99,7 @@
     cursor: pointer;
 }
 .employee-bank-remove-btn button:hover {
-    background-color: rgb(230, 0, 0);
+    background-color: var(--highlighter-dull-pink);
     color: white;
 }
 
@@ -125,6 +127,6 @@
     
 }
 .employee-bank-add-btn button:hover{
-    background-color: lightgreen;
+    background-color: var(--highlighter-green);
     cursor: pointer; /* Cursor pointer on hover */
 }

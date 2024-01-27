@@ -61,7 +61,7 @@
     cursor: pointer;
     width: 50px; /* Width of the toggle */
     height: 25px; /* Height of the toggle */
-    background: rgb(230, 0, 0); /* Background of the toggle when it's off */
+    background: var(--highlighter-dull-pink); /* Background of the toggle when it's off */
     display: block;
     border-radius: 100px;
     position: relative;
@@ -82,7 +82,7 @@
   
   /* Move the slider when the checkbox is checked */
   .calendar-schedule-mode-toggle input:checked + label {
-    background: lightgreen; /* Background of the toggle when it's on */
+    background: var(--highlighter-green); /* Background of the toggle when it's on */
   }
   
   .calendar-schedule-mode-toggle input:checked + label:after {
@@ -112,7 +112,7 @@
     grid-template-columns: repeat(7, 1fr);
     justify-items: center;
 
-    background-color: var(--new-paltz-blue);
+    background-color: var(--highlighter-blue);
     color: white;
     border: 1px solid black;
     border-radius: 5px;
@@ -148,11 +148,11 @@
 }
 
 .calendar-name-card:hover {
-    background-color: var(--new-paltz-orange);
+    background-color: var(--highlighter-orange);
     cursor: pointer;
 }
 .calendar-name-card:active {
-    background-color: var(--new-paltz-dark-orange);
+    background-color: var(--highlighter-dark-orange);
 }
 
 .calendar-number {

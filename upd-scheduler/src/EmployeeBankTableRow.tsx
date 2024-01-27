@@ -18,9 +18,9 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
   isSelected,
 }) => {
   const style = {
-    backgroundColor: isSelected ? "#63CFDB" : "white",
-    color: isSelected ? "white" : "black",
-    padding: "0px 3px 0px 3px",
+    backgroundColor: isSelected ? "#fdff00" : "white",
+    // color: isSelected ? "white" : "black",
+    padding: "0px 5px 0px 5px",
   };
 
   return (
