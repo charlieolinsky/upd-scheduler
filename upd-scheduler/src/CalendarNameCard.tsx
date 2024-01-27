@@ -1,23 +1,23 @@
 import { useState, useContext } from "react";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
+import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
 
 interface CalendarNameCardProps {
   blockId: number;
   nameCardId: string;
-  selectedEmployee: string;
   scheduleMode: boolean;
 }
 
 const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
   blockId,
   nameCardId,
-  selectedEmployee,
   scheduleMode,
 }) => {
   //employee represents the current name on the card
   const [employee, setEmployee] = useState<string>("N/A");
   //employeeRows represents the EmployeeBank
   const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
+  const { selectedEmployee } = useContext(SelectedEmployeeContext);
 
   const handleScheduleEmployee = (nameCardId: string) => {
     let isUpdated = false; //flag to track if an update is made

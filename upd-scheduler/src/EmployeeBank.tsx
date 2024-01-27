@@ -2,14 +2,16 @@ import React, { useContext, useState } from "react";
 import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
+import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
 
-interface EmployeeBankProps {
-  setSelectedEmployee: (name: string) => void;
-}
+interface EmployeeBankProps {}
 
-const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
+const EmployeeBank: React.FC<EmployeeBankProps> = () => {
   const [nextId, setNextId] = useState(0);
   const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
+  const { selectedEmployee, setSelectedEmployee } = useContext(
+    SelectedEmployeeContext
+  );
 
   const handleAddEmployee = () => {
     const enteredName = prompt("Enter Employee Name: ");
@@ -49,6 +51,7 @@ const EmployeeBank: React.FC<EmployeeBankProps> = ({ setSelectedEmployee }) => {
             employeeCount={row.count}
             handleRemoveEmployee={handleRemoveEmployee}
             handleSelectEmployee={handleSelectEmployee}
+            isSelected={selectedEmployee === row.name}
           />
         ))}
         <div className="employee-bank-add-btn">

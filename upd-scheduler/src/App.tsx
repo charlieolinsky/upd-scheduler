@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CalenderInputs from "./CalendarInputs";
 import EmployeeBank from "./EmployeeBank";
 import "./styles/App.css";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
+import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
 
 function App() {
   const [employeeRows, setEmployeeRows] = useState<
@@ -13,8 +14,12 @@ function App() {
   return (
     <div className="app-main">
       <EmployeeRowsContext.Provider value={{ employeeRows, setEmployeeRows }}>
-        <EmployeeBank setSelectedEmployee={setSelectedEmployee} />
-        <CalenderInputs selectedEmployee={selectedEmployee} />
+        <SelectedEmployeeContext.Provider
+          value={{ selectedEmployee, setSelectedEmployee }}
+        >
+          <EmployeeBank />
+          <CalenderInputs />
+        </SelectedEmployeeContext.Provider>
       </EmployeeRowsContext.Provider>
     </div>
   );

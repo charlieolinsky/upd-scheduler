@@ -1,9 +1,12 @@
+import { useState } from "react";
+
 interface EmployeeBankTableRowProps {
   id: number;
   employeeName: string;
   employeeCount: number;
   handleRemoveEmployee: (idToRemove: number) => void;
   handleSelectEmployee: (name: string) => void;
+  isSelected: boolean;
 }
 
 const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
@@ -12,14 +15,21 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
   employeeCount,
   handleRemoveEmployee,
   handleSelectEmployee,
+  isSelected,
 }) => {
+  const style = {
+    backgroundColor: isSelected ? "#63CFDB" : "white",
+    color: isSelected ? "white" : "black",
+    padding: "0px 3px 0px 3px",
+  };
+
   return (
     <div className="employee-bank-table-row">
       <div
         className="employee-bank-name"
         onClick={() => handleSelectEmployee(employeeName)}
       >
-        <h3>{employeeName}</h3>
+        <h3 style={style}>{employeeName}</h3>
       </div>
       <div className="employee-bank-count">
         <h3>{employeeCount}</h3>

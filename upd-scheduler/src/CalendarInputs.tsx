@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Calendar from "./Calendar";
 import "./styles/Calendar.css";
 
-interface CalendarInputsProps {
-  selectedEmployee: string;
-}
+interface CalendarInputsProps {}
 
-const CalendarInputs: React.FC<CalendarInputsProps> = ({
-  selectedEmployee,
-}) => {
+const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
-
   const [scheduleMode, setScheduleMode] = useState<boolean>(true);
 
   const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -120,7 +115,6 @@ const CalendarInputs: React.FC<CalendarInputsProps> = ({
             year={year}
             month={month}
             monthName={selectedMonthName}
-            selectedEmployee={selectedEmployee}
             scheduleMode={scheduleMode}
           />
         </div>
