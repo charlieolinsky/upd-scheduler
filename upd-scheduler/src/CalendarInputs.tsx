@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import Calendar from "./Calendar";
 import "./styles/Calendar.css";
+//PDF
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 interface CalendarInputsProps {}
 
@@ -21,6 +24,24 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
 
   const handleScheduleModeChange = () => {
     setScheduleMode(!scheduleMode);
+  };
+
+  const exportPDF = () => {
+    const input = document.getElementById("calendar-main");
+    if (input) {
+      html2canvas(input).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF({
+          orientation: "landscape",
+          unit: "px",
+          format: [canvas.width, canvas.height],
+        });
+        pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+        pdf.save("download.pdf");
+      });
+    } else {
+      console.log("Error: Element not found (PDF)");
+    }
   };
 
   //Debug
@@ -72,7 +93,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const selectedMonthName = month !== undefined ? months[month - 1] : "";
 
   return (
-    <div className="calendar-main">
+    <div className="calendar-main" id="calendar-main">
       <div className="calendar-toolbar">
         <div className="calendar-schedule-mode-toggle">
           <input
@@ -106,6 +127,10 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
             ))}
           </select>
         </div>
+
+        <button className="pdf-btn" onClick={exportPDF}>
+          Export to PDF
+        </button>
       </div>
 
       {year && month && (
