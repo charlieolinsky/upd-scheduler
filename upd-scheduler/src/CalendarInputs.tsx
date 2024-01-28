@@ -37,7 +37,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
           format: [canvas.width, canvas.height],
         });
         pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
-        pdf.save("download.pdf");
+        pdf.save(`upd-schedule-${months[month - 1].toLowerCase()}-${year}.pdf`);
       });
     } else {
       console.log("Error: Element not found (PDF)");
