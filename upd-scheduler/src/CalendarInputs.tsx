@@ -128,9 +128,11 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
           </select>
         </div>
 
-        <button className="pdf-btn" onClick={exportPDF}>
-          Export to PDF
-        </button>
+        <div className="pdf-btn-container">
+          <button className="pdf-btn" onClick={exportPDF}>
+            Export
+          </button>
+        </div>
       </div>
 
       {year && month && (

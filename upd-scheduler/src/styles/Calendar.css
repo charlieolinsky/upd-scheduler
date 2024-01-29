@@ -103,7 +103,23 @@
   
   /* Toggle CSS -- END */
   
-
+  /* Export PDF Button -- START */
+  .pdf-btn-container {
+    display: flex;
+    align-items: center; /* Vertically centers the child element(s) */
+    justify-content: center; /* Horizontally centers the child element(s) */
+  }
+  .pdf-btn {
+    background-color: lightgray;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    cursor: pointer;
+  }
+  .pdf-btn:hover {
+    background-color: darkgray;
+  }
 
 .calendar-days{
     grid-row: 2;
