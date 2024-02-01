@@ -14,24 +14,33 @@ const CalendarBlock: React.FC<CalendarBlockProps> = ({
   scheduleMode,
 }) => {
   return (
-    <div className="calendar-block">
-      <CalendarNumber number={calendarNumbers[index]} />
-      <CalendarNameCard
-        blockId={index}
-        nameCardId={index + "a"}
-        scheduleMode={scheduleMode}
-      />
-      <CalendarNameCard
-        blockId={index}
-        nameCardId={index + "b"}
-        scheduleMode={scheduleMode}
-      />
-      <CalendarNameCard
-        blockId={index}
-        nameCardId={index + "c"}
-        scheduleMode={scheduleMode}
-      />
-    </div>
+    <>
+      <div className="calendar-block">
+        {calendarNumbers[index] !== null ? (
+          <>
+            {console.log(calendarNumbers[index])}
+            <CalendarNumber number={calendarNumbers[index]} />
+            <CalendarNameCard
+              blockId={index}
+              nameCardId={index + "a"}
+              scheduleMode={scheduleMode}
+            />
+            <CalendarNameCard
+              blockId={index}
+              nameCardId={index + "b"}
+              scheduleMode={scheduleMode}
+            />
+            <CalendarNameCard
+              blockId={index}
+              nameCardId={index + "c"}
+              scheduleMode={scheduleMode}
+            />
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
+    </>
   );
 };
 

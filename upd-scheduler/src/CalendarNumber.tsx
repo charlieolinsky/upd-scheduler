@@ -5,7 +5,7 @@ interface CalendarNumberProps {
 const CalendarNumber: React.FC<CalendarNumberProps> = ({ number }) => {
   return (
     <div className="calendar-number">
-      <h1> {number ? number : 0} </h1>
+      <h1> {number} </h1>
     </div>
   );
 };
