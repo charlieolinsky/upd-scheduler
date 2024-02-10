@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 interface EmployeeBankTableRowProps {
-  id: number;
+  rowId: number;
   employeeName: string;
   employeeCount: number;
   handleRemoveEmployee: (idToRemove: number) => void;
-  handleSelectEmployee: (name: string) => void;
+  handleSelectEmployee: (name: string, id: number) => void;
   isSelected: boolean;
 }
 
 const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
-  id,
+  rowId,
   employeeName,
   employeeCount,
   handleRemoveEmployee,
@@ -27,7 +27,7 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
     <div className="employee-bank-table-row">
       <div
         className="employee-bank-name"
-        onClick={() => handleSelectEmployee(employeeName)}
+        onClick={() => handleSelectEmployee(employeeName, rowId)}
       >
         <h3 style={style}>{employeeName}</h3>
       </div>
@@ -35,7 +35,7 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
         <h3>{employeeCount}</h3>
       </div>
       <div className="employee-bank-remove-btn">
-        <button type="button" onClick={() => handleRemoveEmployee(id)}>
+        <button type="button" onClick={() => handleRemoveEmployee(rowId)}>
           X
         </button>
       </div>

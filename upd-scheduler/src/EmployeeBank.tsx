@@ -14,8 +14,15 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
   );
 
   const handleAddEmployee = () => {
-    const enteredName = prompt("Enter Employee Name: ");
-    if (enteredName) {
+    let enteredName = prompt("Enter Employee Name: ");
+
+    if (
+      enteredName &&
+      employeeRows.some((row) => row.name === enteredName?.toLowerCase())
+    ) {
+      console.log("Error: Name Already Exists");
+      return;
+    } else if (enteredName) {
       const newEmployee = {
         id: nextId,
         name: enteredName,
@@ -32,9 +39,9 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
     setEmployeeRows(newEmployeeRows);
   };
 
-  const handleSelectEmployee = (employeeName: string) => {
-    console.log("Employee Selected! Name: " + employeeName);
-    setSelectedEmployee(employeeName);
+  const handleSelectEmployee = (employeeName: string, rowId: number) => {
+    console.log("Employee Selected! Name: " + employeeName + ", id: " + rowId);
+    setSelectedEmployee({ name: employeeName, id: rowId });
   };
 
   return (
@@ -46,12 +53,12 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
         {employeeRows.map((row) => (
           <EmployeeBankTableRow
             key={row.id}
-            id={row.id}
+            rowId={row.id}
             employeeName={row.name}
             employeeCount={row.count}
             handleRemoveEmployee={handleRemoveEmployee}
             handleSelectEmployee={handleSelectEmployee}
-            isSelected={selectedEmployee === row.name}
+            isSelected={selectedEmployee.id === row.id}
           />
         ))}
         <div className="employee-bank-add-btn">

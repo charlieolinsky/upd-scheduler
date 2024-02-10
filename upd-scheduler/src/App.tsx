@@ -9,7 +9,10 @@ function App() {
   const [employeeRows, setEmployeeRows] = useState<
     Array<{ id: number; name: string; count: number; blocks: Array<number> }>
   >([]);
-  const [selectedEmployee, setSelectedEmployee] = useState<string>("NaN");
+  const [selectedEmployee, setSelectedEmployee] = useState<{
+    name: string;
+    id: number;
+  }>({ name: "NaN", id: -1 });
 
   return (
     <div className="app-main">

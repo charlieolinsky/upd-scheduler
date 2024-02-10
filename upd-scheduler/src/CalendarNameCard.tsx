@@ -26,7 +26,7 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
       const updatedEmployeeRows = employeeRows.map((row) => {
         //If the row represents the selected employee ; the employee is not already scheduled in this block ; employee has not been assigned already
         if (
-          row.name === selectedEmployee &&
+          row.id === selectedEmployee.id &&
           !row.blocks.includes(blockId) &&
           employee === "N/A"
         ) {
@@ -46,7 +46,7 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
         // Update the employeeRows state with the new array
         setEmployeeRows(updatedEmployeeRows);
         // Set the employee name for the current name card
-        setEmployee(selectedEmployee);
+        setEmployee(selectedEmployee.name);
 
         console.log(
           "Employee Name: " +
