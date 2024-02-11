@@ -3,6 +3,7 @@ import EmployeeBankTableRow from "./EmployeeBankTableRow";
 import "./styles/EmployeeBank.css";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
+import { DeleteEmployeeContext } from "./contexts/DeleteEmployeeContext";
 
 interface EmployeeBankProps {}
 
@@ -12,6 +13,7 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
   const { selectedEmployee, setSelectedEmployee } = useContext(
     SelectedEmployeeContext
   );
+  const { setDeleteId } = useContext(DeleteEmployeeContext);
 
   const handleAddEmployee = () => {
     let enteredName = prompt("Enter Employee Name: ");
@@ -35,8 +37,12 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
   };
 
   const handleRemoveEmployee = (idToRemove: number) => {
+    // Remove the employee from the employeeRows array
     const newEmployeeRows = employeeRows.filter((row) => row.id !== idToRemove);
     setEmployeeRows(newEmployeeRows);
+
+    // Set ID to delete from whole calendar
+    setDeleteId(idToRemove);
   };
 
   const handleSelectEmployee = (employeeName: string, rowId: number) => {

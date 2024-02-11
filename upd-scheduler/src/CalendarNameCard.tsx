@@ -1,6 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
+import { DeleteEmployeeContext } from "./contexts/DeleteEmployeeContext";
 
 interface CalendarNameCardProps {
   blockId: number;
@@ -13,9 +14,13 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
   nameCardId,
   scheduleMode,
 }) => {
-  const [employee, setEmployee] = useState<string>("N/A"); //represents the current name on the card
+  const [employee, setEmployee] = useState<{
+    name: string;
+    id: number;
+  }>({ name: "N/A", id: -1 });
   const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext); //represents employee bank contents
   const { selectedEmployee } = useContext(SelectedEmployeeContext); //represents employee selected in bank
+  const { deleteId } = useContext(DeleteEmployeeContext);
 
   const handleScheduleEmployee = (nameCardId: string) => {
     let isUpdated = false; //flag to track if an update is made
@@ -28,7 +33,7 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
         if (
           row.id === selectedEmployee.id &&
           !row.blocks.includes(blockId) &&
-          employee === "N/A"
+          employee.name === "N/A"
         ) {
           // Increment the count for the matched employee and add the blockID. set update flag
           isUpdated = true;
@@ -46,17 +51,17 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
         // Update the employeeRows state with the new array
         setEmployeeRows(updatedEmployeeRows);
         // Set the employee name for the current name card
-        setEmployee(selectedEmployee.name);
+        setEmployee({ name: selectedEmployee.name, id: selectedEmployee.id });
 
         console.log(
           "Employee Name: " +
-            selectedEmployee +
+            selectedEmployee.name +
             " scheduled to NameCard " +
             nameCardId
         );
       }
     } else {
-      handleDescheduleEmployee(employee, nameCardId, isUpdated);
+      handleDescheduleEmployee(employee.name, nameCardId, isUpdated);
     }
   };
 
@@ -81,18 +86,25 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
       });
       if (isUpdated) {
         setEmployeeRows(updatedEmployeeRows);
-        setEmployee("N/A");
+        setEmployee({ name: "N/A", id: -1 });
         console.log("Employee Deschduled from NameCard " + nameCardId);
       }
     }
   };
+
+  // If the employee is deleted, set the employee name to "N/A"
+  useEffect(() => {
+    if (employee.id === deleteId) {
+      setEmployee({ name: "N/A", id: -1 });
+    }
+  }, [deleteId]);
 
   return (
     <div
       className="calendar-name-card"
       onClick={() => handleScheduleEmployee(nameCardId)}
     >
-      <h2>{employee}</h2>
+      <h2>{employee.name}</h2>
     </div>
   );
 };
