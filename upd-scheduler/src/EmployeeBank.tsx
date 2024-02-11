@@ -9,23 +9,32 @@ import Modal from "./Modal";
 interface EmployeeBankProps {}
 
 const EmployeeBank: React.FC<EmployeeBankProps> = () => {
-  const [nextId, setNextId] = useState(0);
-  const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
+  //Employee Bank State Control
+  const [nextId, setNextId] = useState(0); //ID for the next employee to be added
+  const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext); //represents employee bank contents
   const { selectedEmployee, setSelectedEmployee } = useContext(
+    //represents employee selected in bank
     SelectedEmployeeContext
   );
-  const { setDeleteId } = useContext(DeleteEmployeeContext);
+  const { setDeleteId } = useContext(DeleteEmployeeContext); //represents employee to delete from whole calendar
+
+  //Modal State Control
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleAddEmployee = () => {
-    let enteredName = "Enter Employee Name";
+    setIsModalOpen(true);
+  };
 
+  const handleSaveEmployeeToBank = (enteredName: string) => {
     if (
-      enteredName &&
-      employeeRows.some((row) => row.name === enteredName?.toLowerCase())
+      enteredName != "" &&
+      employeeRows.some(
+        (row) => row.name.toLowerCase() === enteredName?.toLowerCase()
+      )
     ) {
       console.log("Error: Name Already Exists");
       return;
-    } else if (enteredName) {
+    } else if (enteredName != "" && enteredName != null) {
       const newEmployee = {
         id: nextId,
         name: enteredName,
@@ -34,6 +43,7 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
       };
       setEmployeeRows([...employeeRows, newEmployee]);
       setNextId(nextId + 1);
+      setIsModalOpen(false);
     }
   };
 
@@ -72,6 +82,15 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
           <button type="button" onClick={handleAddEmployee}>
             +
           </button>
+        </div>
+        <div>
+          <Modal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            onSave={(name: string) => {
+              handleSaveEmployeeToBank(name);
+            }}
+          />
         </div>
       </div>
     </div>
