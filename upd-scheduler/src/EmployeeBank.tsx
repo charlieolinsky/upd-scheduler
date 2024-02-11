@@ -4,6 +4,7 @@ import "./styles/EmployeeBank.css";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
 import { DeleteEmployeeContext } from "./contexts/DeleteEmployeeContext";
+import Modal from "./Modal";
 
 interface EmployeeBankProps {}
 
@@ -16,7 +17,7 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
   const { setDeleteId } = useContext(DeleteEmployeeContext);
 
   const handleAddEmployee = () => {
-    let enteredName = prompt("Enter Employee Name: ");
+    let enteredName = "Enter Employee Name";
 
     if (
       enteredName &&

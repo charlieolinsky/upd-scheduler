@@ -74,6 +74,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
     "December",
   ];
 
+  // Can I improve this? I want it to dynamically update the years based on the current year.
   const years: string[] = [
     "2024",
     "2025",
