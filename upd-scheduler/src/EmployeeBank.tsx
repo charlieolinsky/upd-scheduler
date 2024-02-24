@@ -5,6 +5,8 @@ import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
 import { DeleteEmployeeContext } from "./contexts/DeleteEmployeeContext";
 import Modal from "./Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 interface EmployeeBankProps {}
 
@@ -78,11 +80,6 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
             isSelected={selectedEmployee.id === row.id}
           />
         ))}
-        <div className="employee-bank-add-btn">
-          <button type="button" onClick={handleAddEmployee}>
-            +
-          </button>
-        </div>
         <div>
           <Modal
             isOpen={isModalOpen}
@@ -91,6 +88,11 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
               handleSaveEmployeeToBank(name);
             }}
           />
+        </div>
+        <div className="employee-bank-add-btn">
+          <button type="button" onClick={handleAddEmployee}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
         </div>
       </div>
     </div>

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
+import "./styles/EmployeeBank.css";
 
 interface ModalProps {
   isOpen: boolean; // Whether the modal is open or not
@@ -20,30 +23,37 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSave }) => {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter Employee Name"
-        />
-        <button
-          onClick={() => {
-            handleSubmit();
-            resetInput();
-          }}
-        >
-          Save
-        </button>
-        <button
-          onClick={() => {
-            onClose();
-            resetInput();
-          }}
-        >
-          Cancel
-        </button>
+    <div className="modal-main">
+      <div className="employee-bank-table-row">
+        <div className="employee-bank-name">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Employee Name"
+          />
+        </div>
+
+        <div className="employee-bank-save-btn">
+          <button
+            onClick={() => {
+              handleSubmit();
+              resetInput();
+            }}
+          >
+            <FontAwesomeIcon className="fa-check-icon" icon={faCheck} />
+          </button>
+        </div>
+        <div className="employee-bank-remove-btn">
+          <button
+            onClick={() => {
+              onClose();
+              resetInput();
+            }}
+          >
+            <FontAwesomeIcon icon={faX} />
+          </button>
+        </div>
       </div>
     </div>
   );

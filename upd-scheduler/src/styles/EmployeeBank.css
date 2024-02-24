@@ -1,94 +1,113 @@
+/* General Styles */
 
-
-.employee-bank-main{
-
-    position: sticky;
-    top: 0%;
-    
-    /* Employee Bank is divided into two sections, header and table*/
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto; 
-    margin-top: 50px;
-
-    border: 1px solid black;
-    border-radius: 5px;
-
-    height: fit-content;
-
-    box-shadow: 3px 3px 3px lightgrey;
-
-}
-.employee-bank-header{
-    /* Header takes lesser portion of the grid */
-    grid-row: 1;
-    
-    /* Center Text */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--highlighter-blue);
-    color: white;
-    margin-bottom: 5px;
-    padding: 5px;
-    
-}
-.employee-bank-table {
-    /* Table and add button takes greatest portion of the grid */
-    grid-row: 2; 
-
-    /* General Styling */ 
-    display: flex;
-    flex-direction: column;
+/* Reset padding for all input elements */
+input {
+    padding-block: 0px;
+    padding-inline: 0px;
 }
 
-
-/* Table Rows Styling */
-
-.employee-bank-table-row {
-    display: grid;
-    grid-template-columns: 60% 20% 20%;
-    height: 40px;
-    
-    border: 0.2px solid lightgray;
-    border-radius: 5px;
-
-    margin-left: 3px;
-    margin-right: 3px;
-}
-
-.employee-bank-name h3, .employee-bank-count h3 {
+/* Reset margin, padding and font-weight for all h3 elements */
+h3 {
     margin: 0;
     padding: 0;
     font-weight: normal;
 }
+
+.fa-check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Employee Bank Styles */
+
+/* Main container for Employee Bank */
+.employee-bank-main {
+    position: sticky;
+    top: 0%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto; 
+    margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: fit-content;
+    box-shadow: 3px 3px 3px lightgrey;
+}
+
+/* Header for Employee Bank */
+.employee-bank-header {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--highlighter-blue);
+    color: white;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+/* Table for Employee Bank */
+.employee-bank-table {
+    grid-row: 2; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Employee Bank Table Row Styles */
+
+/* Row in Employee Bank Table */
+.employee-bank-table-row {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    height: 40px;
+    border: 0.2px solid lightgray;
+    border-radius: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/* Common styles for name, count, remove and save button containers */
 .employee-bank-name, .employee-bank-count, .employee-bank-remove-btn {
     display: flex;
     align-items: center;
-    justify-content: center; /* Or 'flex-start' for left alignment */
-
+    justify-content: center;
     overflow: hidden;
 }
+
+/* Specific styles for name container */
 .employee-bank-name {
     padding-left: 5px;
     justify-content: flex-start;
 }
+
+.employee-bank-name input {
+    width: 100%;
+    height: 80%;
+    border: none;
+    background-color: none;
+    margin: 0;
+}
+
 .employee-bank-name:hover {
     cursor: pointer;
 }
+
+/* Specific styles for count container */
 .employee-bank-count {
     background-color: whitesmoke;
 }
 
-/* Buttons */
+/* Employee Bank Button Styles */
 
-.employee-bank-remove-btn {
+/* Common styles for remove and save button containers */
+.employee-bank-remove-btn, .employee-bank-save-btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
+/* Specific styles for remove button */
 .employee-bank-remove-btn button {
     background-color: lightgray;
     color: black;
@@ -98,35 +117,48 @@
     margin-right: 2px;
     cursor: pointer;
 }
+
 .employee-bank-remove-btn button:hover {
     background-color: var(--highlighter-dull-pink);
     color: white;
 }
 
+/* Specific styles for add button container */
 .employee-bank-add-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.employee-bank-add-btn button{
-    /* Button takes lesser portion of the grid */
+/* Specific styles for add button */
+.employee-bank-add-btn button {
     width: 95%;
     align-self: center;
-
-    background-color: lightgrey; /* Green background */
-    color: black; /* White text color */
-    border: none; /* Remove default border */
-    border-radius: 10px; /* Rounded corners */
-    
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    border-radius: 10px;
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 10px;  /* Add some margin at the bottom if needed */
-
-    cursor: pointer; /* Cursor pointer on hover */
-    
+    margin-bottom: 10px;
+    cursor: pointer;
 }
-.employee-bank-add-btn button:hover{
+
+.employee-bank-add-btn button:hover {
     background-color: var(--highlighter-green);
-    cursor: pointer; /* Cursor pointer on hover */
+    color: white;
+}
+
+/* Specific styles for save button */
+.employee-bank-save-btn button {
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px 10px 30px;
+    cursor: pointer;
+}
+.employee-bank-save-btn button:hover {
+    background-color: var(--highlighter-green);
+    color: white;
 }

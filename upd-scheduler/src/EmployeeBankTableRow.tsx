@@ -1,3 +1,5 @@
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 interface EmployeeBankTableRowProps {
@@ -36,7 +38,7 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
       </div>
       <div className="employee-bank-remove-btn">
         <button type="button" onClick={() => handleRemoveEmployee(rowId)}>
-          X
+          <FontAwesomeIcon icon={faX} />
         </button>
       </div>
     </div>
