@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
 import EmployeeBankTableRow from "./EmployeeBankTableRow";
-import "./styles/EmployeeBank.css";
+import EmployeeBankAddButton from "./EmployeeBankAddButton";
 import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 import { SelectedEmployeeContext } from "./contexts/SelectedEmployeeContext";
 import { DeleteEmployeeContext } from "./contexts/DeleteEmployeeContext";
-import Modal from "./Modal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import "./styles/EmployeeBank.css";
 
 interface EmployeeBankProps {}
 
@@ -19,13 +17,6 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
     SelectedEmployeeContext
   );
   const { setDeleteId } = useContext(DeleteEmployeeContext); //represents employee to delete from whole calendar
-
-  //Modal State Control
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleAddEmployee = () => {
-    setIsModalOpen(true);
-  };
 
   const handleSaveEmployeeToBank = (enteredName: string) => {
     if (
@@ -45,7 +36,6 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
       };
       setEmployeeRows([...employeeRows, newEmployee]);
       setNextId(nextId + 1);
-      setIsModalOpen(false);
     }
   };
 
@@ -81,18 +71,11 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
           />
         ))}
         <div>
-          <Modal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
+          <EmployeeBankAddButton
             onSave={(name: string) => {
               handleSaveEmployeeToBank(name);
             }}
           />
-        </div>
-        <div className="employee-bank-add-btn">
-          <button type="button" onClick={handleAddEmployee}>
-            <FontAwesomeIcon icon={faPlus} />
-          </button>
         </div>
       </div>
     </div>

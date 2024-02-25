@@ -36,7 +36,7 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
       <div className="employee-bank-count">
         <h3>{employeeCount}</h3>
       </div>
-      <div className="employee-bank-remove-btn">
+      <div className="employee-bank-btn" id="remove-btn">
         <button type="button" onClick={() => handleRemoveEmployee(rowId)}>
           <FontAwesomeIcon icon={faX} />
         </button>

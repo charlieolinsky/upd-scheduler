@@ -13,12 +13,6 @@ h3 {
     font-weight: normal;
 }
 
-.fa-check-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* Employee Bank Styles */
 
 /* Main container for Employee Bank */
@@ -59,7 +53,7 @@ h3 {
 /* Row in Employee Bank Table */
 .employee-bank-table-row {
     display: grid;
-    grid-template-columns: 60% 20% 20%;
+    grid-template-columns: 68% 16% 16%;
     height: 40px;
     border: 0.2px solid lightgray;
     border-radius: 5px;
@@ -67,8 +61,16 @@ h3 {
     margin-right: 3px;
 }
 
+#modal-row {
+    display: grid;
+    grid-template-columns: 84% 16%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
 /* Common styles for name, count, remove and save button containers */
-.employee-bank-name, .employee-bank-count, .employee-bank-remove-btn {
+.employee-bank-name, .employee-bank-count, .employee-bank-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,14 +103,14 @@ h3 {
 /* Employee Bank Button Styles */
 
 /* Common styles for remove and save button containers */
-.employee-bank-remove-btn, .employee-bank-save-btn {
+#remove-btn, #save-btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
 /* Specific styles for remove button */
-.employee-bank-remove-btn button {
+#remove-btn button {
     background-color: lightgray;
     color: black;
     border: none;
@@ -118,20 +120,13 @@ h3 {
     cursor: pointer;
 }
 
-.employee-bank-remove-btn button:hover {
+#remove-btn button:hover {
     background-color: var(--highlighter-dull-pink);
     color: white;
 }
 
-/* Specific styles for add button container */
-.employee-bank-add-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Specific styles for add button */
-.employee-bank-add-btn button {
+#add-btn button {
     width: 95%;
     align-self: center;
     background-color: lightgrey;
@@ -144,21 +139,22 @@ h3 {
     cursor: pointer;
 }
 
-.employee-bank-add-btn button:hover {
+#add-btn button:hover {
     background-color: var(--highlighter-green);
     color: white;
 }
 
 /* Specific styles for save button */
-.employee-bank-save-btn button {
-    background-color: whitesmoke;
+#save-btn button {
+    background-color: lightgray;
     color: black;
     border: none;
     border-radius: 10px;
-    padding: 10px 15px 10px 30px;
+    padding: 10px 15px;
+    margin-right: 2px;
     cursor: pointer;
 }
-.employee-bank-save-btn button:hover {
+#save-btn button:hover {
     background-color: var(--highlighter-green);
     color: white;
 }
