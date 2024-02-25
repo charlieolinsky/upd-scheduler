@@ -162,11 +162,12 @@
 }
 
 .calendar-name-card:hover {
-    background-color: var(--highlighter-orange);
+    background-color: var(--highlighter-yellow);
+    border-radius: 3px;
     cursor: pointer;
 }
 .calendar-name-card:active {
-    background-color: var(--highlighter-dark-orange);
+    background-color: var(--highlighter-dark-yellow);
 }
 
 .calendar-number {

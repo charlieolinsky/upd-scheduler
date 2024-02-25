@@ -1,11 +1,5 @@
 /* General Styles */
 
-/* Reset padding for all input elements */
-input {
-    padding-block: 0px;
-    padding-inline: 0px;
-}
-
 /* Reset margin, padding and font-weight for all h3 elements */
 h3 {
     margin: 0;
@@ -84,12 +78,14 @@ h3 {
 }
 
 .employee-bank-name input {
-    width: 100%;
+    width: 95%;
     height: 80%;
     border: none;
-    background-color: none;
     margin: 0;
+    padding-left: 5px;
 }
+
+
 
 .employee-bank-name:hover {
     cursor: pointer;

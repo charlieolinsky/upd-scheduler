@@ -59,17 +59,19 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
         <h3>Employee Bank</h3>
       </div>
       <div className="employee-bank-table">
-        {employeeRows.map((row) => (
-          <EmployeeBankTableRow
-            key={row.id}
-            rowId={row.id}
-            employeeName={row.name}
-            employeeCount={row.count}
-            handleRemoveEmployee={handleRemoveEmployee}
-            handleSelectEmployee={handleSelectEmployee}
-            isSelected={selectedEmployee.id === row.id}
-          />
-        ))}
+        <div>
+          {employeeRows.map((row) => (
+            <EmployeeBankTableRow
+              key={row.id}
+              rowId={row.id}
+              employeeName={row.name}
+              employeeCount={row.count}
+              handleRemoveEmployee={handleRemoveEmployee}
+              handleSelectEmployee={handleSelectEmployee}
+              isSelected={selectedEmployee.id === row.id}
+            />
+          ))}
+        </div>
         <div>
           <EmployeeBankAddButton
             onSave={(name: string) => {

@@ -1,6 +1,5 @@
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 
 interface EmployeeBankTableRowProps {
   rowId: number;
@@ -22,7 +21,8 @@ const EmployeeBankTableRow: React.FC<EmployeeBankTableRowProps> = ({
   const style = {
     backgroundColor: isSelected ? "#fdff00" : "white",
     // color: isSelected ? "white" : "black",
-    padding: "0px 5px 0px 5px",
+    padding: "0px 8px 0px 5px",
+    borderRadius: "5px",
   };
 
   return (

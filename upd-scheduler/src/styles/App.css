@@ -36,8 +36,7 @@ h1, h2, h3 {
 /* Color Scheme */
 :root {
     --highlighter-yellow: #fdff00;
-    --highlighter-orange: #ff9a00;
-    --highlighter-dark-orange: #d88303;
+    --highlighter-dark-yellow: rgb(200, 207, 0);
     --highlighter-green: #00ff04;
     --highlighter-blue: #00c5ff; 
     --highlighter-pink: #ff00a7; 
