@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./styles/EmployeeBank.css";
@@ -12,16 +12,14 @@ const EmployeeBankAddButton: React.FC<EmployeeBankAddButtonProps> = ({
 }) => {
   const [name, setName] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
     onSave(name); // Pass the name back to the parent component
-  };
-
-  const resetInput = () => {
     setName("");
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div className="employee-bank-table-row" id="modal-row">
         <div className="employee-bank-name">
           <input
@@ -33,17 +31,12 @@ const EmployeeBankAddButton: React.FC<EmployeeBankAddButtonProps> = ({
         </div>
 
         <div className="employee-bank-btn" id="save-btn">
-          <button
-            onClick={() => {
-              handleSubmit();
-              resetInput();
-            }}
-          >
+          <button type="submit">
             <FontAwesomeIcon className="fa-plus-icon" icon={faPlus} />
           </button>
         </div>
       </div>
-    </>
+    </form>
   );
 };
 
