@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState } from "react";
 import Calendar from "./Calendar";
 import "./styles/Calendar.css";
 //PDF
@@ -11,6 +11,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
   const [scheduleMode, setScheduleMode] = useState<boolean>(true);
+  const [nameCardCount, setNameCardCount] = useState<number>(3);
 
   const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(parseInt(event.target.value));
@@ -24,6 +25,21 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
 
   const handleScheduleModeChange = () => {
     setScheduleMode(!scheduleMode);
+  };
+
+  const handleIncrementNameCardCount = () => {
+    if (nameCardCount < 5) {
+      setNameCardCount(nameCardCount + 1);
+    } else {
+      console.log("Name card count must be between 3 and 5.");
+    }
+  };
+  const handleDecrementNameCardCount = () => {
+    if (nameCardCount > 3) {
+      setNameCardCount(nameCardCount - 1);
+    } else {
+      console.log("Name card count must be between 3 and 5.");
+    }
   };
 
   const exportPDF = () => {
@@ -43,11 +59,6 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
       console.log("Error: Element not found (PDF)");
     }
   };
-
-  //Debug
-  useEffect(() => {
-    console.log("Mode set to: " + (scheduleMode ? "Schedule" : "Deschedule"));
-  }, [scheduleMode]);
 
   const days: string[] = [
     "Sunday",
@@ -94,7 +105,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const selectedMonthName = month !== undefined ? months[month - 1] : "";
 
   return (
-    <div className="calendar-main" id="calendar-main">
+    <div className="calendar-main">
       <div className="calendar-toolbar">
         <div className="calendar-schedule-mode-toggle">
           <input
@@ -129,6 +140,12 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
           </select>
         </div>
 
+        <div className="name-card-counter">
+          <button onClick={handleDecrementNameCardCount}> - </button>
+          <span>{nameCardCount}</span>
+          <button onClick={handleIncrementNameCardCount}> + </button>
+        </div>
+
         <div className="pdf-btn-container">
           <button className="pdf-btn" onClick={exportPDF}>
             Export
@@ -144,6 +161,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
             month={month}
             monthName={selectedMonthName}
             scheduleMode={scheduleMode}
+            nameCardCount={nameCardCount}
           />
         </div>
       )}

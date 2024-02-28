@@ -21,7 +21,6 @@
     justify-content: center;
     overflow: auto;
 }
-
 #month-select {
     text-align: left;
     padding: 1px 30px 1px 1px;
@@ -32,7 +31,6 @@
     padding: 1px 30px 1px 1px;
     margin-left: 2px;
 }
-
 .calendar-inputs select {
     display: flex;
 

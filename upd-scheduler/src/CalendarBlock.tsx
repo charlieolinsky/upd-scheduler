@@ -6,35 +6,33 @@ interface CalendarBlockProps {
   index: number;
   calendarNumbers: any[];
   scheduleMode: boolean;
+  nameCardCount: number;
 }
 
 const CalendarBlock: React.FC<CalendarBlockProps> = ({
   index,
   calendarNumbers,
   scheduleMode,
+  nameCardCount,
 }) => {
+  const nameCards = [];
+  for (let i = 0; i < nameCardCount; i++) {
+    nameCards.push(
+      <CalendarNameCard
+        blockId={index}
+        nameCardId={index + String.fromCharCode(97 + i)}
+        scheduleMode={scheduleMode}
+      />
+    );
+  }
+
   return (
     <>
       <div className="calendar-block">
         {calendarNumbers[index] !== null ? (
           <>
-            {console.log(calendarNumbers[index])}
             <CalendarNumber number={calendarNumbers[index]} />
-            <CalendarNameCard
-              blockId={index}
-              nameCardId={index + "a"}
-              scheduleMode={scheduleMode}
-            />
-            <CalendarNameCard
-              blockId={index}
-              nameCardId={index + "b"}
-              scheduleMode={scheduleMode}
-            />
-            <CalendarNameCard
-              blockId={index}
-              nameCardId={index + "c"}
-              scheduleMode={scheduleMode}
-            />
+            {nameCards}
           </>
         ) : (
           <></>
