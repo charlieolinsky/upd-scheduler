@@ -19,6 +19,7 @@ const CalendarBlock: React.FC<CalendarBlockProps> = ({
   for (let i = 0; i < nameCardCount; i++) {
     nameCards.push(
       <CalendarNameCard
+        key={index + String.fromCharCode(97 + i)}
         blockId={index}
         nameCardId={index + String.fromCharCode(97 + i)}
         scheduleMode={scheduleMode}
