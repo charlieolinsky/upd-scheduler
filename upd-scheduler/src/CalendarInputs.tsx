@@ -105,7 +105,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const selectedMonthName = month !== undefined ? months[month - 1] : "";
 
   return (
-    <div className="calendar-main">
+    <div className="calendar-main" id="calendar-main">
       <div className="calendar-toolbar">
         <div className="calendar-schedule-mode-toggle">
           <input
