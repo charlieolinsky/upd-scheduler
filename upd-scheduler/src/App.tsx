@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CalenderInputs from "./CalendarInputs";
 import EmployeeBank from "./EmployeeBank";
 import "./styles/App.css";
@@ -14,8 +14,14 @@ function App() {
     name: string;
     id: number;
   }>({ name: "NaN", id: -1 });
-
   const [deleteId, setDeleteId] = useState<number>(-999);
+
+  //Debug
+  useEffect(() => {
+    console.log("Employee Rows: ", employeeRows);
+    console.log("Selected Employee: ", selectedEmployee);
+    console.log("Delete ID: ", deleteId);
+  }, [employeeRows, selectedEmployee, deleteId]);
 
   return (
     <div className="app-main">

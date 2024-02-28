@@ -140,8 +140,20 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
           </select>
         </div>
 
-        <div className="name-card-counter">
-          <button onClick={handleDecrementNameCardCount}> - </button>
+        <div className="calendar-name-card-counter">
+          <label
+            id="calendar-name-card-counter-label"
+            htmlFor="name-card-sub-button"
+          >
+            Employee's Per Shift:
+          </label>
+          <button
+            id="name-card-sub-button"
+            onClick={handleDecrementNameCardCount}
+          >
+            {" "}
+            -{" "}
+          </button>
           <span>{nameCardCount}</span>
           <button onClick={handleIncrementNameCardCount}> + </button>
         </div>
