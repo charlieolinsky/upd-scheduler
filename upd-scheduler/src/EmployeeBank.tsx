@@ -33,6 +33,7 @@ const EmployeeBank: React.FC<EmployeeBankProps> = () => {
         name: enteredName,
         count: 0,
         blocks: [],
+        nameCardIds: [],
       };
       setEmployeeRows([...employeeRows, newEmployee]);
       setNextId(nextId + 1);

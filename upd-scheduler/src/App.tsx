@@ -8,7 +8,13 @@ import { DeleteEmployeeContext } from "./contexts/DeleteEmployeeContext";
 
 function App() {
   const [employeeRows, setEmployeeRows] = useState<
-    Array<{ id: number; name: string; count: number; blocks: Array<number> }>
+    Array<{
+      id: number;
+      name: string;
+      count: number;
+      blocks: Array<number>;
+      nameCardIds: Array<string>;
+    }>
   >([]);
   const [selectedEmployee, setSelectedEmployee] = useState<{
     name: string;

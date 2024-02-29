@@ -41,6 +41,7 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
             ...row,
             count: row.count + 1,
             blocks: [...row.blocks, blockId],
+            nameCardIds: [...row.nameCardIds, nameCardId],
           };
         }
         return row; // Return the row unchanged if it's not the matched employee
@@ -73,13 +74,17 @@ const CalendarNameCard: React.FC<CalendarNameCardProps> = ({
     if (employee !== "N/A") {
       const updatedEmployeeRows = employeeRows.map((row) => {
         if (row.name === employee) {
-          //Decrement Count, Remove the blockID from the employees blocks array, set flag
+          //Decrement Count, Remove the blockID from the employees blocks array as well as the namecard ID, set flag
           isUpdated = true;
           const newBlocks = row.blocks?.filter((id) => id !== blockId);
+          const newNameCardIds = row.nameCardIds?.filter(
+            (id) => id !== nameCardId
+          );
           return {
             ...row,
             count: row.count > 0 ? row.count - 1 : 0,
             blocks: newBlocks,
+            nameCardIds: newNameCardIds,
           };
         }
         return row;

@@ -6,6 +6,7 @@ interface EmployeeRow {
   name: string;
   count: number;
   blocks: Array<number>;
+  nameCardIds: Array<string>;
 }
 
 // Define the type for the context

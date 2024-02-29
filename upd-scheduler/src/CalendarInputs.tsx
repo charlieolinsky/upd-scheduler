@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Calendar from "./Calendar";
 import "./styles/Calendar.css";
 //PDF
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { EmployeeRowsContext } from "./contexts/EmployeeRowsContext";
 
 interface CalendarInputsProps {}
 
@@ -12,6 +13,7 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
   const [scheduleMode, setScheduleMode] = useState<boolean>(true);
   const [nameCardCount, setNameCardCount] = useState<number>(3);
+  const { employeeRows, setEmployeeRows } = useContext(EmployeeRowsContext);
 
   const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(parseInt(event.target.value));
@@ -34,11 +36,33 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
       console.log("Name card count must be between 3 and 5.");
     }
   };
+
   const handleDecrementNameCardCount = () => {
     if (nameCardCount > 3) {
       setNameCardCount(nameCardCount - 1);
-    } else {
-      console.log("Name card count must be between 3 and 5.");
+
+      // Remove employee's assigned to 4th and 5th name cards and update employeeRows.
+      const charMap: { [key: number]: string } = {
+        5: "e",
+        4: "d",
+      };
+      setEmployeeRows(
+        employeeRows.map((row) => {
+          let countDecrease = 0;
+          const filteredNameCardIds = row.nameCardIds.filter((id) => {
+            if (id.includes(charMap[nameCardCount])) {
+              countDecrease++;
+              return false;
+            }
+            return true;
+          });
+          return {
+            ...row,
+            nameCardIds: filteredNameCardIds,
+            count: row.count - countDecrease,
+          };
+        })
+      );
     }
   };
 
