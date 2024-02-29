@@ -2,13 +2,16 @@ package database
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/mattn/go-sqlite3"
 )
 
 func InitDB() {
-	db, err := sql.Open("sqlite3", "./upd-scheduler.db")
+	fmt.Println("Initializing database...")
+
+	db, err := sql.Open("sqlite3", "./database/upd-scheduler.db")
 	if err != nil {
 		log.Fatal(err)
 	}
