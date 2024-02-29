@@ -1,21 +1,17 @@
 package main
 
 import (
-	"database/sql"
-	"log"
+	"fmt"
+	"net/http"
 
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/charlieolinsky/upd-scheduler/server/database"
 )
 
 func main() {
-	db, err := sql.Open("sqlite3", "./upd-scheduler.db")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
+	})
+	http.ListenAndServe(":8080", nil)
 
-	_, err = db.Exec("PRAGMA schema_version;")
-	if err != nil {
-		log.Fatal(err)
-	}
+	database.InitDB()
 }
