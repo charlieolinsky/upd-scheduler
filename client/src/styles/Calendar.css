@@ -115,23 +115,25 @@
   
   /* Toggle CSS -- END */
   
-  /* Export PDF Button -- START */
-  .pdf-btn-container {
+  /* Save/Load/Export Buttons -- START */
+  .toolbar-btn-container {
     display: flex;
     align-items: center; /* Vertically centers the child element(s) */
-    justify-content: center; /* Horizontally centers the child element(s) */
+    justify-content: flex-end; /* Horizontally centers the child element(s) */;
   }
-  .pdf-btn {
+  .toolbar-btn-container button {
     background-color: lightgray;
     color: black;
     border: none;
     border-radius: 10px;
     padding: 5px 20px;
     cursor: pointer;
+    margin: 0px 2px;
   }
-  .pdf-btn:hover {
+  .toolbar-btn-container button:hover {
     background-color: darkgray;
   }
+
 
 .calendar-days{
     grid-row: 2;

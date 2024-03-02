@@ -66,6 +66,16 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
     }
   };
 
+  const handleSaveState = () => {
+    //This will call the server-side API endpoint to save the current state of the calendar
+    console.log("Save Button Pressed");
+  };
+
+  const handleLoadState = () => {
+    //This will call the server-side API endpoint to load the current state of the calendar
+    console.log("Load Button Pressed");
+  };
+
   const exportPDF = () => {
     const input = document.getElementById("calendar-main");
     if (input) {
@@ -175,15 +185,20 @@ const CalendarInputs: React.FC<CalendarInputsProps> = () => {
             id="name-card-sub-button"
             onClick={handleDecrementNameCardCount}
           >
-            {" "}
-            -{" "}
+            -
           </button>
           <span>{nameCardCount}</span>
           <button onClick={handleIncrementNameCardCount}> + </button>
         </div>
 
-        <div className="pdf-btn-container">
-          <button className="pdf-btn" onClick={exportPDF}>
+        <div className="toolbar-btn-container">
+          <button id="load-btn" onClick={handleLoadState}>
+            Load
+          </button>
+          <button id="save-btn" onClick={handleSaveState}>
+            Save
+          </button>
+          <button id="pdf-btn" onClick={exportPDF}>
             Export
           </button>
         </div>

@@ -17,7 +17,7 @@ const Calendar: React.FC<CalendarProps> = ({
   scheduleMode,
   nameCardCount,
 }) => {
-  //Create an array of 35 unique CalendarBlock components with unique indicies
+  //Create an array of 42 unique CalendarBlock components with unique indicies
   const calendarBlocks = Array.from({ length: 42 }, (_, i) => (
     <CalendarBlock
       index={i}
